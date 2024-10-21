@@ -14,6 +14,5 @@ export const useMediaQuery = (query: string) => {
 
     return () => result.removeEventListener("change", onChange);
   }, [query]);
-  console.log(value);
   return value;
 };

@@ -34,7 +34,7 @@ const HeroFlowers = () => {
                 width={1520}
                 height={1400}
                 src="/images/shadow.png"
-                className="absolute top-0 left-0 h-auto max-w-full w-[1500px] pointer-events-none opacity-60"
+                className="absolute top-0 left-0 h-auto max-w-full w-[1500px] pointer-events-none opacity-100  animate-fog"
               />
             </div>
             <div className="absolute pointer-events-none -top-[17rem] md:top-[-25rem] lg:top-20 bg-sky-500 -right-[13rem] sm:-right-24 w-[500px] lg:w-[700px] z-10">

@@ -38,6 +38,21 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      animation: {
+        "infinite-scroll": "infinite-scroll 25s linear infinite",
+        fog: "fog 10s ease-in-out infinite",
+      },
+      keyframes: {
+        "infinite-scroll": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
+        fog: {
+          "0%": { transform: "translateX(0) scale(1)" },
+          "50%": { transform: "translateX(20px) scale(1.05)" },
+          "100%": { transform: "translateX(0) scale(1)" },
+        },
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

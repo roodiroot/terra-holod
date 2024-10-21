@@ -40,7 +40,7 @@ const FeaturesSection = () => {
             <i.icon className="w-12 stroke-[--accent]" />
             <div className="mt-4">
               <h3 className="font-semibold">{i.title}</h3>
-              <p className="text-lg mt-5">{i.description}</p>
+              <p className="text-base mt-5">{i.description}</p>
             </div>
           </div>
         ))}

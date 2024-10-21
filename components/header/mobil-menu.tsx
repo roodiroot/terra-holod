@@ -41,7 +41,6 @@ interface MobilMenuBodyProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const MobilMenuBody: React.FC<MobilMenuBodyProps> = ({
   linkList,
-  className,
   ...props
 }) => {
   return (

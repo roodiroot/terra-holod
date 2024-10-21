@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import SectionContainer from "../section-container";
 import BoodyFooter from "./body-footer";
 import HeadFooter from "./head-footer";
@@ -8,7 +9,7 @@ interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {}
 const Footer: React.FC<FooterProps> = ({ className }) => {
   return (
     <>
-      <SectionContainer className="bg-gray-50">
+      <SectionContainer className={cn("bg-gray-50", className)}>
         <div className="w-full -my-16 md:-my-24">
           <div className="translate-y-16 md:translate-y-28 relative z-10">
             <HeadFooter />

@@ -1,5 +1,11 @@
-import Image from "next/image";
+import AboutSectionForAbout from "@/components/pages/about/about";
+import HeroAbout from "@/components/pages/about/hero";
 
 export default function AboutPage() {
-  return <div className=" mt-0 bg-red-200 h-[700px]">AboutPage</div>;
+  return (
+    <>
+      <HeroAbout />
+      <AboutSectionForAbout />
+    </>
+  );
 }

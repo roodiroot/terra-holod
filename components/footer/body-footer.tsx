@@ -10,7 +10,7 @@ const contacts = [
 
 const BoodyFooter = () => {
   return (
-    <div className="mt-8 md:mt-4">
+    <div className="mt-8 md:mt-4 md:px-4">
       <h2 className="text-4xl md:text-5xl font-bold text-balance max-w-2xl">
         Холодильное оборудование от производителя
       </h2>
