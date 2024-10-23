@@ -39,13 +39,28 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       animation: {
-        "infinite-scroll": "infinite-scroll 25s linear infinite",
+        "infinite-scroll-g": "infinite-scroll-gorisont 25s linear infinite",
+        "infinite-scroll-ga": "infinite-scroll-gorisont-a 25s linear infinite",
+        "infinite-scroll-v": "infinite-scroll-vertical 25s linear infinite",
+        "infinite-scroll-va": "infinite-scroll-vertical-a 25s linear infinite",
         fog: "fog 10s ease-in-out infinite",
       },
       keyframes: {
-        "infinite-scroll": {
+        "infinite-scroll-gorisont": {
           from: { transform: "translateX(0)" },
-          to: { transform: "translateX(-100%)" },
+          to: { transform: "translateX(calc(-100% - 16px))" },
+        },
+        "infinite-scroll-gorisont-a": {
+          from: { transform: "translateX(calc(-100% - 16px))" },
+          to: { transform: "translateX(0)" },
+        },
+        "infinite-scroll-vertical": {
+          from: { transform: "translateY(0)" },
+          to: { transform: "translateY(calc(-100% - 16px))" },
+        },
+        "infinite-scroll-vertical-a": {
+          from: { transform: "translateY(calc(-100% - 16px))" },
+          to: { transform: "translateY(0)" },
         },
         fog: {
           "0%": { transform: "translateX(0) scale(1)" },
@@ -55,6 +70,19 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addUtilities }: any) {
+      const newUtilities = {
+        ".animation-play-running": {
+          "animation-play-state": "running",
+        },
+        ".animation-play-paused": {
+          "animation-play-state": "paused",
+        },
+      };
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    },
+  ],
 };
 export default config;

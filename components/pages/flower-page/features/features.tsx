@@ -26,10 +26,10 @@ const FeaturesSection = () => {
   return (
     <SectionContainer className="bg-[#ECEDEB]">
       <p className="font-semibold text-3xl text-[--accent] text-center lg:text-left">
-        Почему стоит выбрать нас
+        Эффективные решения под ваш бизнес
       </p>
-      <h2 className="text-5xl text-center mx-auto lg:mx-0 lg:text-left  lg:text-7xl max-w-2xl mt-5 font-bold">
-        Гибкость, экономия, доступная цена
+      <h2 className="text-4xl text-center mx-auto lg:mx-0 lg:text-left  lg:text-5xl max-w-2xl mt-5 font-bold">
+        Индивидуально. Энергоэффективно. Выгодно.
       </h2>
       <div className="grid grid-cols-1 max-w-sm mx-auto lg:max-w-none lg:grid-cols-3 gap-5 mt-14">
         {features.map((i) => (
