@@ -25,12 +25,12 @@ const Partners = () => {
               </div>
               <div className="inline-flex  gap-x-4 lg:flex-col  max-h-[800px] pb-16">
                 <ul className="flex lg:flex-col gap-4 items-center justify-center animate-infinite-scroll-ga lg:animate-infinite-scroll-va">
-                  {new Array(4).fill("").map((_, index) => (
+                  {new Array(5).fill("").map((_, index) => (
                     <PartnerItem index={index + 5} key={index} />
                   ))}
                 </ul>
                 <ul className="flex lg:flex-col gap-4 items-center justify-center animate-infinite-scroll-ga lg:animate-infinite-scroll-va lg:mt-4">
-                  {new Array(4).fill("").map((_, index) => (
+                  {new Array(5).fill("").map((_, index) => (
                     <PartnerItem index={index + 5} key={index} />
                   ))}
                 </ul>
@@ -59,7 +59,7 @@ export default Partners;
 
 const PartnerItem = ({ index }: { index: number }) => {
   return (
-    <div className="relative aspect-[1.4/1] min-w-[290px] w-full  bg-gray-300 rounded-[30px] md:rounded-[40px] lg:rounded-[60px] overflow-hidden flex items-center justify-center shadow-md">
+    <div className="relative aspect-[1.4/1] min-w-[290px] w-full bg-gray-300 rounded-[30px] md:rounded-[40px] lg:rounded-[60px] overflow-hidden flex items-center justify-center shadow-md">
       <Image
         alt="partner"
         width={485}
