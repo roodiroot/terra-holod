@@ -64,7 +64,7 @@ const VariantsSection = () => {
       <h2 className="text-5xl text-center lg:text-left lg:text-7xl max-w-2xl mx-auto lg:mx-0 mt-5 font-bold">
         Решения для вашего бизнеса
       </h2>
-      <div className="flex flex-col gap-y-12 mt-14 lg:mt-20 w-full max-w-sm lg:max-w-none mx-auto lg:gap-x-12 lg:flex-row">
+      <div className="flex flex-col gap-y-12 mt-14 lg:mt-16 w-full max-w-sm lg:max-w-none mx-auto lg:gap-x-12 lg:flex-row">
         {variantsList.map((i) => (
           <VariantItem
             key={i.title}
@@ -93,7 +93,11 @@ const VariantItem: React.FC<VariantItemProps> = ({
 }) => {
   return (
     <div className="flex flex-col gap-y-10 flex-1">
-      <div className="relative bg-[linear-gradient(to_top_left,#1B3064,#3760CA)] rounded-[50px] aspect-square lg:rounded-[60px]">
+      <div
+        className="relative
+     bg-[--accent]
+       rounded-[50px] aspect-square lg:rounded-[60px]"
+      >
         {img}
       </div>
       <div className="">

@@ -1,4 +1,21 @@
 export const Icons = {
+  arrLink: () => {
+    return (
+      <svg
+        width="47"
+        height="46"
+        viewBox="0 0 47 46"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1 45.0001H46.4533M1 45.0001L1 0M1 45.0001L33.3224 13"
+          stroke="white"
+          strokeWidth="2"
+        />
+      </svg>
+    );
+  },
   x: (props: React.HTMLAttributes<SVGElement>) => {
     return (
       <svg
