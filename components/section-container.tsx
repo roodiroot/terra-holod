@@ -13,9 +13,7 @@ const SectionContainer: React.FC<SectionContainerProps> = ({
         className
       )}
     >
-      <div className="py-16 md:py-24">
-        <Container>{children}</Container>
-      </div>
+      <Container>{children}</Container>
       <div
         className={cn(
           "absolute inset-x-0 bottom-0 bg-white h-28 translate-y-28",

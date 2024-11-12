@@ -33,6 +33,9 @@ const config: Config = {
         foreground: "var(--foreground)",
         bggrad: "linear-gradient(122deg, #EBECE9 0%, #81898D 100%)",
       },
+      backgroundImage: {
+        pattern: "url('/images/terra-pattern.svg')",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -44,8 +47,13 @@ const config: Config = {
         "infinite-scroll-v": "infinite-scroll-vertical 25s linear infinite",
         "infinite-scroll-va": "infinite-scroll-vertical-a 25s linear infinite",
         fog: "fog 10s ease-in-out infinite",
+        tisker: "tisker 10s linear infinite",
       },
       keyframes: {
+        tisker: {
+          "0%": { transform: "translateZ(0)" },
+          to: { transform: "translate3d(-100%, 0, 0)" },
+        },
         "infinite-scroll-gorisont": {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(calc(-100% - 16px))" },

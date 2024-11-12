@@ -6,7 +6,7 @@ import OpenModalBatton from "@/components/active-components/open-modal-batton";
 
 const Hero = () => {
   return (
-    <div className="lg:h-[900px] bg-white overflow-hidden pt-[100px]">
+    <div className="pb-28 mb-[30px] bg-white overflow-hidden pt-[100px]">
       <Container>
         <div className="max-w-xl mx-auto flex flex-col lg:flex-row gap-y-8 gap-x-[30px] lg:max-w-none lg:mx-0">
           <div className=" md:aspect-square bg-[#F6F6F6] rounded-[40px] md:rounded-[60px] flex-1 relative overflow-hidden p-4 md:p-10 flex flex-col gap-8 justify-between lg:max-w-[50%]">
@@ -30,7 +30,7 @@ const Hero = () => {
           </div>
           <div className=" aspect-square bg-[#F6F6F6] sm:rounded-[60px] flex-1 relative overflow-hidden -mx-4 md:mx-0">
             <Image
-              alt="flower"
+              alt="her0-cond"
               width={700}
               height={700}
               src="/images/main-page/hero.jpg"
