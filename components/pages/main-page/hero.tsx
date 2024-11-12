@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import Container from "@/components/container";
 import { Button } from "@/components/ui/button";
-import OpenModalBatton from "@/components/active-components/open-modal-batton";
+// import OpenModalBatton from "@/components/active-components/open-modal-batton";
 
 const Hero = () => {
   return (

@@ -1,10 +1,8 @@
+import { cn } from "@/lib/utils";
 import Container from "@/components/container";
-import SectionContainer from "@/components/section-container";
+import { Button } from "@/components/ui/button";
 import PartnerItem from "../utils/partner-items";
 import OpenModalBatton from "@/components/active-components/open-modal-batton";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { Icons } from "@/components/icons/icons";
 
 const PartnersForMainPage = () => {
   return (
