@@ -33,7 +33,7 @@ const Hero = () => {
               alt="her0-cond"
               width={700}
               height={700}
-              src="/images/main-page/hero.jpg"
+              src="/images/main-page/hero3.jpg"
               className="absolute w-full h-full object-cover"
             />
           </div>

@@ -30,7 +30,7 @@ const ImageAbout = () => {
         alt="her0-cond"
         width={700}
         height={700}
-        src="/images/main-page/about.jpg"
+        src="/images/main-page/about3.jpg"
         className="absolute w-full h-full object-cover"
       />
       <div className="relative z-20 w-full h-full p-4 flex flex-col justify-between items-start md:p-7">
@@ -38,7 +38,7 @@ const ImageAbout = () => {
           Связаться
         </Button>
         <Link href={"/about"} className="flex gap-4 text-white font-medium ">
-          <Icons.arrLink />
+          <Icons.arrLink className="stroke-white" />
           <span className="leading-7">
             Подробнее <br /> о компании
           </span>
