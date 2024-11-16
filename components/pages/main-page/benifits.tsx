@@ -1,6 +1,7 @@
 import { Icons } from "@/components/icons/icons";
 import SectionContainer from "@/components/section-container";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const benifits = [
   {
@@ -24,7 +25,7 @@ const benifits = [
 const BenifitsForMainPage = () => {
   return (
     <SectionContainer className="bg-[#F6F6F6]">
-      <div className="max-w-xl mx-auto pt-[30px]  pb-[30px] flex flex-col gap-4 md:gap-6 lg:max-w-none lg:pt-[85px] lg:mx-0">
+      <div className="max-w-xl mx-auto pt-4 md:pt-[30px]  pb-[30px] flex flex-col gap-4 md:gap-6 lg:max-w-none lg:pt-[85px] lg:mx-0">
         <div className="flex flex-wrap flex-row gap-4 md:gap-6">
           <BlackBenifit />
           {benifits.map((i) => (
@@ -44,11 +45,23 @@ export default BenifitsForMainPage;
 const BlackBenifit = () => {
   return (
     <div className="relative w-full bg-[#2E2E2E] p-4 rounded-[40px] overflow-hidden  md:rounded-[60px] md:p-7 lg:w-auto">
-      <Icons.blur className="absolute top-0 -left-[11.5rem]" />
-      <Button className="border-white text-white" variant="outline">
+      <div className="absolute z-0 inset-0">
+        <Image
+          alt="refregerator"
+          width={631}
+          height={473}
+          src="/images/main-page/ben1.jpg"
+          className="absolute w-full h-full object-cover"
+        />
+      </div>
+      <Icons.blur className="absolute z-10 top-0 -left-[11.5rem]" />
+      <Button
+        className="border-white relative z-10 text-white"
+        variant="outline"
+      >
         Связаться
       </Button>
-      <div className="flex justify-between items-end">
+      <div className=" relative z-10 flex justify-between items-end">
         <p className="text-white mt-[75px] leading-6">
           холодильников <br /> установлено
         </p>
@@ -81,7 +94,7 @@ const BigBenifit = () => {
       <h2 className="text-4xl font-bold">
         От идеи до обслуживания: Полный цикл решений для вашего бизнеса
       </h2>
-      <div className="h-[219px]"></div>
+      <div className="lg:h-[219px]"></div>
       <p>
         Мы проектируем, устанавливаем и обслуживаем холодильное оборудование.
         Наша команда обеспечивает тщательное планирование и исполнение, чтобы

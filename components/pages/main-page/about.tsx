@@ -9,7 +9,7 @@ const AboutForMainPage = () => {
   return (
     <SectionContainer className="">
       <div className="max-w-xl mx-auto pt-[60px] pb-[60px] lg:max-w-none lg:mx-0 lg:pt-[85px]">
-        <h2 className=" text-balance text-4xl font-bold text-center lg:text-left lg:text-5xl">
+        <h2 className=" text-balance text-4xl font-bold max-w-md lg:text-5xl">
           Эксперты в своем деле
         </h2>
         <div className="mt-[30px] flex flex-col gap-[30px] lg:flex-row">

@@ -5,9 +5,9 @@ import Image from "next/image";
 
 const TehnologyForMainPage = () => {
   return (
-    <SectionContainer className="bg-[#DEE0E0]">
+    <SectionContainer className="bg-[#F6F6F6]">
       <div className="max-w-xl mx-auto pt-[60px] lg:max-w-none lg:mx-0 lg:pt-[85px]">
-        <h2 className="max-w-3xl text-balance text-4xl font-bold text-center lg:text-left lg:text-5xl">
+        <h2 className="max-w-3xl text-balance text-4xl font-bold lg:text-5xl">
           Технологии для максимальной эффективности
         </h2>
         <div className="flex flex-col mt-[30px] gap-7 max-w-xl mx-auto lg:max-w-none lg:flex-row lg:items-start">

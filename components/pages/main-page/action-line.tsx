@@ -4,7 +4,7 @@ const ActionLine = () => {
   return (
     <div
       className={
-        "relative pb-16 md:pb-[100px] bg-[#DEE0E0] -translate-y-28 overflow-hidden"
+        "relative pb-16 md:pb-[100px] bg-[#F6F6F6] -translate-y-28 overflow-hidden"
       }
     >
       <div className="flex py-8 md:py-12">

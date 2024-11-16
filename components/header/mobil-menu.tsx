@@ -44,22 +44,21 @@ const MobilMenuBody: React.FC<MobilMenuBodyProps> = ({
   ...props
 }) => {
   return (
-    <div
-      className="absolute inset-0 z-0 p-8 flex items-center justify-center"
-      {...props}
-    >
-      <ul className="space-y-4 text-center">
-        {linkList.map((item) => (
-          <li key={item.page} className="py-2">
-            <Link
-              href={item.href}
-              className="font-medium tracking-tight text-2xl overflow-auto"
-            >
-              <DrawerClose>{item.page}</DrawerClose>
-            </Link>
-          </li>
-        ))}
-      </ul>
+    <div className="absolute inset-0 z-0 p-4" {...props}>
+      <div className="w-full h-full  flex items-center justify-center bg-[#f6f6f6] rounded-[50px]">
+        <ul className="space-y-4 text-center">
+          {linkList.map((item) => (
+            <li key={item.page} className="py-2">
+              <Link
+                href={item.href}
+                className="font-medium tracking-tight text-2xl overflow-auto"
+              >
+                <DrawerClose>{item.page}</DrawerClose>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

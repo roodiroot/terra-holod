@@ -11,7 +11,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
     <>
       <SectionContainer className={cn("bg-gray-50", className)}>
         <div className="w-full -my-16 md:-my-24">
-          <div className="translate-y-16 md:translate-y-28 relative z-10">
+          <div className="translate-y-[30px] md:translate-y-[65px] relative z-10">
             <HeadFooter />
             <BoodyFooter />
             <PoliticFooter />
