@@ -58,21 +58,23 @@ const variantsList = [
 const VariantsSection = () => {
   return (
     <SectionContainer className="bg-[#ECEDEB]">
-      <p className="font-semibold text-3xl text-[--accent] text-center lg:text-left">
-        Под ваши задачи
-      </p>
-      <h2 className="text-5xl text-center lg:text-left lg:text-7xl max-w-2xl mx-auto lg:mx-0 mt-5 font-bold">
-        Решения для вашего бизнеса
-      </h2>
-      <div className="flex flex-col gap-y-12 mt-14 lg:mt-16 w-full max-w-sm lg:max-w-none mx-auto lg:gap-x-12 lg:flex-row">
-        {variantsList.map((i) => (
-          <VariantItem
-            key={i.title}
-            title={i.title}
-            img={i.img}
-            description={i.description}
-          />
-        ))}
+      <div className="pt-[60px] pb-[30px]">
+        <p className="font-semibold text-3xl text-[--accent] text-center lg:text-left">
+          Под ваши задачи
+        </p>
+        <h2 className="text-5xl text-center lg:text-left lg:text-7xl max-w-2xl mx-auto lg:mx-0 mt-5 font-bold">
+          Решения для вашего бизнеса
+        </h2>
+        <div className="flex flex-col gap-y-[30px] mt-6 w-full max-w-sm lg:max-w-none mx-auto lg:gap-x-[30px] lg:flex-row">
+          {variantsList.map((i) => (
+            <VariantItem
+              key={i.title}
+              title={i.title}
+              img={i.img}
+              description={i.description}
+            />
+          ))}
+        </div>
       </div>
     </SectionContainer>
   );
@@ -92,18 +94,18 @@ const VariantItem: React.FC<VariantItemProps> = ({
   img,
 }) => {
   return (
-    <div className="flex flex-col gap-y-10 flex-1">
+    <div className="flex flex-col gap-y-6 flex-1">
       <div
         className="relative
      bg-[--accent]
-       rounded-[50px] aspect-square lg:rounded-[60px]"
+       rounded-[40px] aspect-square lg:rounded-[60px]"
       >
         {img}
       </div>
       <div className="">
-        <h3 className="text-3xl lg:text-4xl font-bold">{title}</h3>
-        <p className="mt-6">{description}</p>
-        <div className="mt-3">
+        <h3 className="text-3xl lg:text-4xl font-bold max-w-sm">{title}</h3>
+        <p className="mt-2 text-base max-w-sm">{description}</p>
+        <div className="">
           <OpenModalBatton
             variant="link"
             className="text-[--accent] cursor-pointer px-0 text-xl"

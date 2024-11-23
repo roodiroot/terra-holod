@@ -30,10 +30,10 @@ const Hero = () => {
           </div>
           <div className=" aspect-square bg-[#F6F6F6] sm:rounded-[60px] flex-1 relative overflow-hidden -mx-4 md:mx-0">
             <Image
+              priority
               alt="her0-cond"
-              width={700}
-              height={700}
-              src="/images/main-page/hero3.jpg"
+              fill
+              src="/images/compressed/hero3.jpg"
               className="absolute w-full h-full object-cover"
             />
           </div>

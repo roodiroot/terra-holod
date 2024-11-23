@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { Icons } from "@/components/icons/icons";
 import { Button } from "@/components/ui/button";
 import OpenModalBatton from "../active-components/open-modal-batton";
@@ -5,7 +7,9 @@ import OpenModalBatton from "../active-components/open-modal-batton";
 const HeadFooter = () => {
   return (
     <div className="flex flex-row justify-between items-center pb-4 xl:pb-8 px-4 -mx-4">
-      <Icons.fullLogo />
+      <Link href={"/"}>
+        <Icons.fullLogo />
+      </Link>
       <OpenModalBatton variant="outline">
         <Button
           className="hidden md:inline-flex relative z-20"

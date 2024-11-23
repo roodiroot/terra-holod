@@ -74,11 +74,11 @@ interface FeaturesItemProps extends React.HTMLAttributes<HTMLDivElement> {
 const FeaturesItem: React.FC<FeaturesItemProps> = ({ title, description }) => {
   return (
     <div className="relative min-w-[300px] p-4 flex-1 rounded-[40px] overflow-hidden bg-white sm:p-7 md:rounded-[60px] ">
-      <div className="flex flex-col justify-between">
+      <div className="flex w-full h-full flex-col justify-between">
         <div className="w-2.5 h-2.5 bg-black rounded-full mb-[90px]"></div>
         <div className="space-y-7">
-          <h3 className="text-3xl font-semibold">{title}</h3>
-          <p>{description}</p>
+          <h3 className="text-3xl font-bold">{title}</h3>
+          <p className="text-lg">{description}</p>
         </div>
       </div>
     </div>
@@ -88,7 +88,7 @@ const PromoItem = () => {
   return (
     <div className="relative min-w-[300px] bg-[--accent] p-4 flex-1 rounded-[40px] overflow-hidden sm:p-7 md:rounded-[60px] ">
       <div className="w-full h-full flex flex-col justify-between items-center">
-        <div className="w-full text-right text-white">
+        <div className="w-full text-right text-white font-bold">
           Готовы выехаь на объект <br /> за 2 часа
         </div>
         <Icons.abstract />
@@ -110,7 +110,7 @@ const ImageBlock = () => {
         alt="store"
         width={1235}
         height={390}
-        src="/images/main-page/proj6.jpg"
+        src="/images/compressed/proj6.jpg"
         className="absolute w-full h-full object-cover"
       />
       <div className="relative z-10 w-full h-full p-4 sm:p-7 flex flex-col justify-between items-start">

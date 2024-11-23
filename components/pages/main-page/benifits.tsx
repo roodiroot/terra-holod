@@ -2,6 +2,7 @@ import { Icons } from "@/components/icons/icons";
 import SectionContainer from "@/components/section-container";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 const benifits = [
   {
@@ -50,7 +51,7 @@ const BlackBenifit = () => {
           alt="refregerator"
           width={631}
           height={473}
-          src="/images/main-page/ben1.jpg"
+          src="/images/compressed/ben1.jpg"
           className="absolute w-full h-full object-cover"
         />
       </div>
@@ -90,17 +91,42 @@ const WhiteBenifit = ({
 
 const BigBenifit = () => {
   return (
-    <div className="bg-white p-4 rounded-[40px] md:rounded-[60px] md:p-7">
+    <div className="bg-white p-4 rounded-[40px] md:rounded-[60px] md:p-7 lg:space-y-4">
       <h2 className="text-4xl font-bold">
         От идеи до обслуживания: Полный цикл решений для вашего бизнеса
       </h2>
-      <div className="lg:h-[219px]"></div>
+      <div className="hidden lg:block relative lg:h-[219px]">
+        <Image
+          alt="refregerator"
+          width={631}
+          height={473}
+          src="/images/compressed/benifits.png"
+          className="absolute w-full h-full object-contain"
+        />
+      </div>
+      <div className="lg:hidden relative h-auto">
+        <Image
+          alt="refregerator"
+          width={631}
+          height={473}
+          src="/images/compressed/benifits.mobil.png"
+          className=" object-contain"
+        />
+      </div>
       <p>
         Мы проектируем, устанавливаем и обслуживаем холодильное оборудование.
         Наша команда обеспечивает тщательное планирование и исполнение, чтобы
         гарантировать надежное функционирование холодильного оборудования и
         оптимальную температуру для вашего бизнеса.
       </p>
+      <div className="mt-2 sm:mt-4">
+        <Link
+          className="text-base text-[--accent] font-semibold hover:underline"
+          href="/projects"
+        >
+          Наши проекты...
+        </Link>
+      </div>
     </div>
   );
 };

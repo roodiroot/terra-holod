@@ -26,25 +26,27 @@ const features = [
 const FeaturesSection = () => {
   return (
     <SectionContainer className="bg-[#ECEDEB]">
-      <p className="font-semibold text-3xl text-[--accent] text-center lg:text-left">
-        Эффективные решения под ваш бизнес
-      </p>
-      <h2 className="text-4xl text-center mx-auto lg:mx-0 lg:text-left  lg:text-5xl max-w-2xl mt-5 font-bold">
-        Индивидуально. Энергоэффективно. Выгодно.
-      </h2>
-      <div className="grid grid-cols-1 max-w-sm mx-auto lg:max-w-none lg:grid-cols-3 gap-5 mt-14">
-        {features.map((i) => (
-          <div
-            key={i.title}
-            className="bg-white rounded-[50px] px-4 py-8 sm:rounded-[60px] sm:px-8 flex flex-col justify-between gap-10"
-          >
-            <i.icon className="w-12 stroke-[--accent]" />
-            <div className="mt-4">
-              <h3 className="font-semibold">{i.title}</h3>
-              <p className="text-base mt-5">{i.description}</p>
+      <div className="pt-[60px] pb-[30px]">
+        <p className="font-semibold text-3xl text-[--accent] text-center lg:text-left">
+          Эффективные решения под ваш бизнес
+        </p>
+        <h2 className="text-4xl text-center mx-auto lg:mx-0 lg:text-left  lg:text-5xl max-w-2xl mt-5 font-bold">
+          Индивидуально. Энергоэффективно. Выгодно.
+        </h2>
+        <div className="grid grid-cols-1 max-w-sm mx-auto lg:max-w-none lg:grid-cols-3 gap-5 mt-8">
+          {features.map((i) => (
+            <div
+              key={i.title}
+              className="bg-white rounded-[50px] px-4 py-8 sm:rounded-[60px] sm:px-8 flex flex-col justify-between gap-10"
+            >
+              <i.icon className="w-12 stroke-[--accent]" />
+              <div className="mt-4">
+                <h3 className="font-semibold">{i.title}</h3>
+                <p className="text-base mt-5">{i.description}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </SectionContainer>
   );

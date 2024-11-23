@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils";
-import SectionContainer from "../section-container";
-import BoodyFooter from "./body-footer";
-import HeadFooter from "./head-footer";
-import PoliticFooter from "./polityc-footer";
+import HeadFooter from "@/components/footer/head-footer";
+import BoodyFooter from "@/components/footer/body-footer";
+import SectionContainer from "@/components/section-container";
+import PoliticFooter from "@/components/footer/polityc-footer";
 
 interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {}
 

@@ -1,6 +1,7 @@
 import OpenModalBatton from "@/components/active-components/open-modal-batton";
 import { Icons } from "@/components/icons/icons";
 import SectionContainer from "@/components/section-container";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 const TehnologyForMainPage = () => {
@@ -23,13 +24,13 @@ export default TehnologyForMainPage;
 
 const ExampleTehnology = () => {
   return (
-    <div className="bg-[#2E2E2E] flex-1 rounded-[40px] overflow-hidden flex flex-col md:rounded-[60px] lg:aspect-[0.82/1]">
-      <div className="relative aspect-[2/1.3] lg:aspect-auto lg:h-1/2">
+    <div className="bg-[#2E2E2E] flex-1 rounded-[40px] overflow-hidden flex flex-col md:rounded-[60px] ">
+      <div className="relative aspect-[2/1.3] lg:aspect-[1.5/1] lg:h-1/2">
         <Image
           alt="refregerator"
           width={631}
           height={473}
-          src="/images/main-page/ref1.jpg"
+          src="/images/compressed/ref1.jpg"
           className="absolute w-full h-full object-cover"
         />
       </div>
@@ -45,13 +46,13 @@ const ExampleTehnology = () => {
                 <Icons.arrLink />
               </OpenModalBatton>
             </div>
-            <p className="max-w-sm mt-5 text-white text-base lg:text-2xl">
+            <p className="max-w-sm mt-5 text-white text-base">
               Мы стараемся обеспечить идеальные условия для хранения и
               демонстрации букетов.
             </p>
           </div>
-          <div className="mt-auto w-full flex justify-between items-end text-white">
-            <div className="text-base lg:text-2xl">стоимость</div>
+          <div className="mt-8 w-full flex justify-between items-end text-white">
+            <div className="text-base">стоимость</div>
             <div className="font-bold text-4xl lg:text-5xl">59 000 ₽</div>
           </div>
         </div>
@@ -63,34 +64,28 @@ const ExampleTehnology = () => {
 const DescriptionTehnology = () => {
   return (
     <div className="flex-1 space-y-4 md:space-y-7">
-      <p>
-        Мы предлагаем полный комплект холодильного оборудования для цветочных
-        магазинов, который включает:
-      </p>
       <div className="">
-        <h3 className="font-semibold">Внутренние блоки</h3>
         <p className="mt-2 text-xl md:mt-4">
-          Обеспечивают точное поддержание температуры внутри камеры, создавая
-          идеальные условия для хранения цветов. Наши блоки адаптированы под
-          разные объемы и требования.
+          Инверторные технологии стали неотъемлемой частью современных систем
+          охлаждения, и мы активно используем их в нашем оборудовании.
+          Инверторные компрессоры позволяют регулировать скорость работы,
+          обеспечивая более точное поддержание температуры и снижая
+          энергопотребление. Это не только повышает эффективность работы
+          холодильных систем, но и значительно продлевает их срок службы.
         </p>
       </div>
       <div className="">
-        <h3 className="font-semibold">Внешние блоки</h3>
+        <h3 className="font-semibold">Экономия и надежность</h3>
         <p className="mt-2 text-xl md:mt-4">
-          Отвечают за эффективное охлаждение и отвод тепла. Эти
-          энергоэффективные устройства работают тихо и стабильно, даже в
-          интенсивных режимах.
+          Использование инверторного оборудования обеспечивает нашим клиентам
+          экономию до 30% на расходах электроэнергии. Такие системы работают
+          тихо, без резких запусков и остановок, что минимизирует износ деталей
+          и повышает надежность оборудования. Мы внедряем эти технологии в
+          каждый проект, чтобы гарантировать клиентам лучшее соотношение цены и
+          качества.
         </p>
       </div>
-      <div className="">
-        <h3 className="font-semibold">Цветочные камеры на заказ</h3>
-        <p className="mt-2 text-xl md:mt-4">
-          Мы проектируем и строим индивидуальные цветочные камеры по запросу
-          вашего бизнеса. Они позволяют сохранять свежесть и привлекательность
-          цветов благодаря оптимальным условиям хранения.
-        </p>
-      </div>
+      <Button>Подобрать оборудование</Button>
     </div>
   );
 };
