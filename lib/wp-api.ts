@@ -41,6 +41,7 @@ export async function getAllPostsWithSlug(): Promise<
               sourceUrl
             }
           }
+          
         }
       }
     }
@@ -76,4 +77,43 @@ export async function getPostBySlug(slug: string) {
   );
 
   return response.post;
+}
+
+//Получаем все посты
+export async function getAllPosts(): Promise<
+  {
+    slug: string;
+    title: string;
+    featuredImage: { node: { sourceUrl: string } };
+  }[]
+> {
+  const response = await fetchAPI(`
+    query SinglePost {
+      posts {
+        nodes {
+        slug
+          title
+          excerpt
+          date
+          featuredImage {
+            node {
+              sourceUrl
+            }
+          }
+          projects {
+            description
+            fieldGroupName
+            title
+            img {
+              node {
+                mediaItemUrl
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  return response.posts.nodes;
 }
