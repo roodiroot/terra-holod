@@ -1,5 +1,18 @@
 const API_URL = process.env.WORDPRESS_API_URL || "";
 
+export interface Post {
+  date: string; // Ожидаем, что дата будет в формате строки
+  title: string; // Заголовок поста
+  slug: string; // Уникальный идентификатор или адрес поста
+  excerpt: string; // Краткое описание
+  content: string;
+  featuredImage: {
+    node: {
+      sourceUrl: string; // URL изображения
+    };
+  };
+}
+
 async function fetchAPI(query = "", { variables }: Record<string, any> = {}) {
   const headers = { "Content-Type": "application/json" };
 
@@ -21,13 +34,7 @@ async function fetchAPI(query = "", { variables }: Record<string, any> = {}) {
 }
 
 //Получаем все посты
-export async function getAllPostsWithSlug(): Promise<
-  {
-    slug: string;
-    title: string;
-    featuredImage: { node: { sourceUrl: string } };
-  }[]
-> {
+export async function getAllPostsWithSlug(): Promise<Post[]> {
   const response = await fetchAPI(`
     query getAllPostsWithSlug {
       posts {
@@ -50,7 +57,7 @@ export async function getAllPostsWithSlug(): Promise<
   return response.posts.nodes;
 }
 
-export async function getPostBySlug(slug: string) {
+export async function getPostBySlug(slug: string): Promise<Post> {
   const decodedStr = decodeURIComponent(slug);
   const response = await fetchAPI(
     `
@@ -80,40 +87,40 @@ export async function getPostBySlug(slug: string) {
 }
 
 //Получаем все посты
-export async function getAllPosts(): Promise<
-  {
-    slug: string;
-    title: string;
-    featuredImage: { node: { sourceUrl: string } };
-  }[]
-> {
-  const response = await fetchAPI(`
-    query SinglePost {
-      posts {
-        nodes {
-        slug
-          title
-          excerpt
-          date
-          featuredImage {
-            node {
-              sourceUrl
-            }
-          }
-          projects {
-            description
-            fieldGroupName
-            title
-            img {
-              node {
-                mediaItemUrl
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
+// export async function getAllPosts(): Promise<
+//   {
+//     slug: string;
+//     title: string;
+//     featuredImage: { node: { sourceUrl: string } };
+//   }[]
+// > {
+//   const response = await fetchAPI(`
+//     query SinglePost {
+//       posts {
+//         nodes {
+//         slug
+//           title
+//           excerpt
+//           date
+//           featuredImage {
+//             node {
+//               sourceUrl
+//             }
+//           }
+//           projects {
+//             description
+//             fieldGroupName
+//             title
+//             img {
+//               node {
+//                 mediaItemUrl
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   `);
 
-  return response.posts.nodes;
-}
+//   return response.posts.nodes;
+// }

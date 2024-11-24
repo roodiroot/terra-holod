@@ -101,7 +101,7 @@ const SolutionsForMainPage = async () => {
       <div className="pb-[30px]">
         <div className="max-w-xl mx-auto flex flex-col gap-4 md:gap-6 lg:max-w-none lg:mx-0">
           <ul className="flex flex-wrap flex-row gap-4 md:gap-6">
-            {posts.map((i: any) => {
+            {posts.map((i) => {
               const date = new Date(i.date);
               const formattedDate = date.toLocaleDateString("ru-RU", {
                 day: "2-digit",
@@ -149,7 +149,6 @@ const BentooContainer: React.FC<BentooContainerProps> = ({
 
 const ProjectItem = ({
   title,
-  imgUrl,
   excerpt,
   slug,
   date,
