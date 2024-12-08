@@ -33,7 +33,7 @@ const Hero = () => {
               priority
               alt="her0-cond"
               fill
-              src="/images/compressed/hero3.jpg"
+              src="/images/for_page/refregerator_1.jpg"
               className="absolute w-full h-full object-cover"
             />
           </div>

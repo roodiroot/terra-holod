@@ -110,7 +110,7 @@ const ImageBlock = () => {
         alt="store"
         width={1235}
         height={390}
-        src="/images/compressed/proj6.jpg"
+        src="/images/for_page/instance_for_refregerator_2.jpg"
         className="absolute w-full h-full object-cover"
       />
       <div className="relative z-10 w-full h-full p-4 sm:p-7 flex flex-col justify-between items-start">

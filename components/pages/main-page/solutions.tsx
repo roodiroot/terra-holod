@@ -17,7 +17,7 @@ const SolutionsForMainPage = async () => {
               alt="store"
               width={416}
               height={496}
-              src="/images/compressed/proj5.jpg"
+              src="/images/for_page/external_unit.jpg"
               className="absolute z-0 w-full h-full object-cover"
             />
             <div className="relative z-10 p-4 w-full h-full sm:p-7 flex items-end">
@@ -60,7 +60,7 @@ const SolutionsForMainPage = async () => {
               alt="store"
               width={796}
               height={496}
-              src="/images/compressed/proj8.jpg"
+              src="/images/for_page/big_store.jpg"
               className="absolute z-0 w-full h-full object-cover"
             />
             <div className="relative flex flex-col justify-between h-full z-10 p-4 sm:p-7 ">

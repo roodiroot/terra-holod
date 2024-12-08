@@ -4,6 +4,12 @@ import { Icons } from "@/components/icons/icons";
 import { getAllPostsWithSlug } from "@/lib/wp-api";
 import HeroContainer from "@/components/pages/hero-container";
 
+export const metadata = {
+  title: "Наши проекты — Терра Холода",
+  description:
+    "Узнайте о наших проектах в сфере холодильного оборудования. Мы предоставляем решения для хранения и транспортировки замороженных продуктов.",
+};
+
 const ProjectsPage = async () => {
   const posts = await getAllPostsWithSlug();
 

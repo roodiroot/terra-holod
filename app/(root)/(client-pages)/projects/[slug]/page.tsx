@@ -1,8 +1,30 @@
 import { getPostBySlug } from "@/lib/wp-api";
 import PostText from "@/components/pages/post/post-text";
 import HeroForPostPage from "@/components/pages/post/hero";
+import { Metadata, ResolvingMetadata } from "next";
 
-const PostPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
+type Props = {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const slug = (await params).slug;
+
+  // fetch data
+  const post = await getPostBySlug(slug);
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+  };
+}
+
+const PostPage = async ({ params }: Props) => {
   const slug = (await params).slug;
   const post = await getPostBySlug(slug);
   const date = new Date(post.date);

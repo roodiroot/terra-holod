@@ -30,7 +30,7 @@ const ExampleTehnology = () => {
           alt="refregerator"
           width={631}
           height={473}
-          src="/images/compressed/ref1.jpg"
+          src="/images/for_page/three_unit_1.jpg"
           className="absolute w-full h-full object-cover"
         />
       </div>

@@ -28,9 +28,9 @@ const ImageAbout = () => {
     <div className=" aspect-square flex-1 relative rounded-[40px] overflow-hidden md:rounded-[60px] lg:aspect-auto">
       <Image
         alt="her0-cond"
-        width={700}
-        height={700}
-        src="/images/compressed/about3.jpg"
+        width={600}
+        height={600}
+        src="/images/for_page/instance_for_refregerator.jpg"
         className="absolute w-full h-full object-cover"
       />
       <div className="relative z-20 w-full h-full p-4 flex flex-col justify-between items-start md:p-7">

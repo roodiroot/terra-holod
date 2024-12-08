@@ -120,12 +120,14 @@ const BigBenifit = () => {
         оптимальную температуру для вашего бизнеса.
       </p>
       <div className="mt-2 sm:mt-4">
-        <Link
-          className="text-base text-[--accent] font-semibold hover:underline"
-          href="/projects"
-        >
-          Наши проекты...
-        </Link>
+        <Button asChild>
+          <Link
+            className="text-base text-[--accent] font-semibold hover:underline"
+            href="/projects"
+          >
+            Все проекты
+          </Link>
+        </Button>
       </div>
     </div>
   );
