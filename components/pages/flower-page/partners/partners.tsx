@@ -1,7 +1,5 @@
 import Container from "@/components/container";
-import { Button } from "@/components/ui/button";
-import OpenModalBatton from "@/components/active-components/open-modal-batton";
-import PartnerItem from "../../general/partner-items";
+
 import {
   SliderForPartners,
   TextBlockForPartners,

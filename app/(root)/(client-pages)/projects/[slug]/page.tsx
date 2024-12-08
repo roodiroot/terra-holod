@@ -1,17 +1,15 @@
+import { Metadata } from "next";
+
 import { getPostBySlug } from "@/lib/wp-api";
 import PostText from "@/components/pages/post/post-text";
 import HeroForPostPage from "@/components/pages/post/hero";
-import { Metadata, ResolvingMetadata } from "next";
 
 type Props = {
   params: Promise<{ slug: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-export async function generateMetadata(
-  { params, searchParams }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
   const slug = (await params).slug;
 
