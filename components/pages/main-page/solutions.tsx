@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { getAllPostsWithSlug } from "@/lib/wp-api";
+import OpenModalBatton from "@/components/active-components/open-modal-batton";
 
 const SolutionsForMainPage = async () => {
   const posts = await getAllPostsWithSlug();
@@ -65,12 +66,14 @@ const SolutionsForMainPage = async () => {
             />
             <div className="relative flex flex-col justify-between h-full z-10 p-4 sm:p-7 ">
               <div className="flex gap-4">
-                <Button
-                  className="relative z-30 border-white self-start text-white"
-                  variant="outline"
-                >
-                  Связаться
-                </Button>
+                <OpenModalBatton variant="outline">
+                  <Button
+                    className="relative z-30 border-white self-start text-white"
+                    variant="outline"
+                  >
+                    Связаться
+                  </Button>
+                </OpenModalBatton>
                 <p className="text-white font-medium leading-6">
                   обеспечиваем свежесть <br /> и долгий срок хранения
                 </p>

@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons/icons";
 import SectionContainer from "@/components/section-container";
+import OpenModalBatton from "@/components/active-components/open-modal-batton";
 
 const featuresList = [
   {
@@ -92,12 +93,14 @@ const PromoItem = () => {
           Готовы выехаь на объект <br /> за 2 часа
         </div>
         <Icons.abstract />
-        <Button
-          className="border-white self-start text-white"
-          variant="outline"
-        >
-          Связаться
-        </Button>
+        <OpenModalBatton variant="outline">
+          <Button
+            className="border-white self-start text-white"
+            variant="outline"
+          >
+            Связаться
+          </Button>
+        </OpenModalBatton>
       </div>
     </div>
   );
@@ -118,12 +121,14 @@ const ImageBlock = () => {
           23 500м<sup>2</sup>
         </div>
         <div className="flex flex-col gap-4 md:gap-6 md:flex-row">
-          <Button
-            className="border-white self-start text-white"
-            variant="outline"
-          >
-            Связаться
-          </Button>
+          <OpenModalBatton variant="outline">
+            <Button
+              className="border-white self-start text-white"
+              variant="outline"
+            >
+              Связаться
+            </Button>
+          </OpenModalBatton>
           <span className="text-white leading-6">
             проект, монтаж <br /> и обслуживание склада
           </span>

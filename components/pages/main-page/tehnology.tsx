@@ -85,7 +85,9 @@ const DescriptionTehnology = () => {
           качества.
         </p>
       </div>
-      <Button>Подобрать оборудование</Button>
+      <OpenModalBatton variant="outline">
+        <Button>Подобрать оборудование</Button>
+      </OpenModalBatton>
     </div>
   );
 };

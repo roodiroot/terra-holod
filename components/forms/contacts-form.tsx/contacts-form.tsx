@@ -18,6 +18,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { sendMessageFedback } from "@/actions/sender";
+import { toast } from "sonner";
 
 interface ContactsFormProps extends React.HTMLAttributes<HTMLFormElement> {}
 
@@ -32,8 +34,17 @@ const ContactsForm: React.FC<ContactsFormProps> = ({ className, ...props }) => {
   });
 
   async function onSubmit(values: z.infer<typeof formContactsSchema>) {
-    console.log(values);
-    form.reset();
+    await sendMessageFedback(values)
+      .then((d) => {
+        if (d.succsess) {
+          toast(d.succsess);
+          return;
+        }
+        toast(d.error);
+      })
+      .finally(() => {
+        form.reset();
+      });
   }
 
   return (

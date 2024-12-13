@@ -1,6 +1,8 @@
+import Image from "next/image";
+
 import ContactsForm from "@/components/forms/contacts-form.tsx/contacts-form";
 import HeroContainer from "../hero-container";
-import Image from "next/image";
+import { contactsList } from "@/constance";
 
 const HeroContacts = () => {
   return (
@@ -10,34 +12,15 @@ const HeroContacts = () => {
           <div className="space-y-4">
             <div className="">
               <h3 className="font-semibold">Адрес:</h3>{" "}
-              <span>гор. Саранск, ул. Строительная, дом 11, офис 202</span>
+              <span>{contactsList[0].toString().slice(6)}</span>
             </div>
             <div className="">
               <h3 className="font-semibold">Email:</h3>{" "}
-              <span>example@mail.ru</span>
+              <span>{contactsList[1]}</span>
             </div>
             <div className="">
               <h3 className="font-semibold">Телефон:</h3>{" "}
-              <span>8 987 570 45-14</span>
-            </div>
-            {/* <p className="mt-4 text-xl">
-              Обеспечивают точное поддержание температуры внутри камеры,
-              создавая идеальные условия для хранения цветов. Наши блоки
-              адаптированы под разные объемы и требования.
-            </p> */}
-          </div>
-          <div className="space-y-4">
-            <div className="">
-              <h3 className="font-semibold">Адрес:</h3>{" "}
-              <span>гор. Саранск, ул. Строительная, дом 11, офис 202</span>
-            </div>
-            <div className="">
-              <h3 className="font-semibold">Email:</h3>{" "}
-              <span>example@mail.ru</span>
-            </div>
-            <div className="">
-              <h3 className="font-semibold">Телефон:</h3>{" "}
-              <span>8 987 570 45-14</span>
+              <span>{contactsList[2]}</span>
             </div>
             {/* <p className="mt-4 text-xl">
               Обеспечивают точное поддержание температуры внутри камеры,

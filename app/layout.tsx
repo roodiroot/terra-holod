@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Toaster } from "@/components/ui/sonner";
 
 import { gilroy } from "@/app/fonts";
 
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="ru">
       <body className={`${gilroy.variable} antialiased`}>
         {children}
+        <Toaster />
         <Overlay />
       </body>
     </html>

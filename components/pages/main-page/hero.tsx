@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import Container from "@/components/container";
 import { Button } from "@/components/ui/button";
+import OpenModalBatton from "@/components/active-components/open-modal-batton";
 // import OpenModalBatton from "@/components/active-components/open-modal-batton";
 
 const Hero = () => {
@@ -16,10 +17,14 @@ const Hero = () => {
             </h1>
             <div className="space-y-4">
               <div className="flex flex-col items-start gap-x-4 gap-y-2  sm:flex-row">
-                <Button className="order-2 sm:order-1">Консультация</Button>
-                <Button className="order-1 sm:order-2" variant="outline">
-                  Связаться
-                </Button>
+                <OpenModalBatton>
+                  <Button className="order-2 sm:order-1">Консультация</Button>
+                </OpenModalBatton>
+                <OpenModalBatton variant="outline">
+                  <Button className="order-1 sm:order-2" variant="outline">
+                    Связаться
+                  </Button>
+                </OpenModalBatton>
               </div>
               <p className="text-base md:text-lg">
                 Комплексные решения для охлаждения: от производства до

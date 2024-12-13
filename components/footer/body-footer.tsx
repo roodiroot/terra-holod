@@ -1,12 +1,7 @@
 import Link from "next/link";
 
 import { menu } from "@/routes";
-
-const contacts = [
-  "Адрес: гор. Саранск, ул. Строительная, дом 11, офис 202",
-  "Email: example@mail.ru",
-  "Телефон: 8 987 570 45-14",
-];
+import { contactsList } from "@/constance";
 
 const BoodyFooter = () => {
   return (
@@ -25,8 +20,8 @@ const BoodyFooter = () => {
         </div>
         <div className="flex flex-col gap-y-2 text-base max-w-xs text-balance">
           <h4 className="font-semibold">Контакты</h4>
-          {contacts.map((i) => (
-            <div key={i}>{i}</div>
+          {contactsList.map((i, index) => (
+            <div key={index}>{i}</div>
           ))}
         </div>
       </div>

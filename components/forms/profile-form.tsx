@@ -1,8 +1,9 @@
 "use client";
 
 import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "sonner";
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import {
   Form,
@@ -18,8 +19,11 @@ import { Input } from "@/components/ui/input";
 import { formProfileSchema } from "@/schemas";
 import { Button } from "@/components/ui/button";
 import InputPhoneMask from "@/components/ui/input-phone-mask";
+import { sendMessagePopup } from "@/actions/sender";
+import useModal from "@/hooks/use-modal";
 
 function ProfileForm({ className }: React.ComponentProps<"form">) {
+  const { onClose } = useModal();
   const form = useForm<z.infer<typeof formProfileSchema>>({
     resolver: zodResolver(formProfileSchema),
     defaultValues: {
@@ -29,8 +33,17 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
   });
 
   async function onSubmit(values: z.infer<typeof formProfileSchema>) {
-    console.log(values);
-    form.reset();
+    await sendMessagePopup(values)
+      .then((d) => {
+        if (d.succsess) {
+          toast(d.succsess);
+          return onClose();
+        }
+        toast(d.error);
+      })
+      .finally(() => {
+        form.reset();
+      });
   }
   return (
     <Form {...form}>

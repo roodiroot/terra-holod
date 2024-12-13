@@ -1,3 +1,4 @@
+import OpenModalBatton from "@/components/active-components/open-modal-batton";
 import { Icons } from "@/components/icons/icons";
 import SectionContainer from "@/components/section-container";
 import { Button } from "@/components/ui/button";
@@ -56,12 +57,14 @@ const BlackBenifit = () => {
         />
       </div>
       <Icons.blur className="absolute z-10 top-0 -left-[11.5rem]" />
-      <Button
-        className="border-white relative z-10 text-white"
-        variant="outline"
-      >
-        Связаться
-      </Button>
+      <OpenModalBatton variant="outline">
+        <Button
+          className="border-white relative z-10 text-white"
+          variant="outline"
+        >
+          Связаться
+        </Button>
+      </OpenModalBatton>
       <div className=" relative z-10 flex justify-between items-end">
         <p className="text-white mt-[75px] leading-6">
           холодильников <br /> установлено

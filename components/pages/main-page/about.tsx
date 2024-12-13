@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons/icons";
 import SectionContainer from "@/components/section-container";
+import OpenModalBatton from "@/components/active-components/open-modal-batton";
 
 const AboutForMainPage = () => {
   return (
@@ -34,9 +35,11 @@ const ImageAbout = () => {
         className="absolute w-full h-full object-cover"
       />
       <div className="relative z-20 w-full h-full p-4 flex flex-col justify-between items-start md:p-7">
-        <Button className="border-white text-white" variant="outline">
-          Связаться
-        </Button>
+        <OpenModalBatton variant="outline">
+          <Button className="border-white text-white" variant="outline">
+            Связаться
+          </Button>
+        </OpenModalBatton>
         <Link href={"/about"} className="flex gap-4 text-white font-medium ">
           <Icons.arrLink className="stroke-white" />
           <span className="leading-7">
