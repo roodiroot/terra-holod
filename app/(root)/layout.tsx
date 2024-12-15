@@ -1,15 +1,16 @@
+import type { Metadata } from "next";
+
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
-import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://terraholod.ru"),
   title: {
-    template: "%s | Холодильные решения для бизнеса",
-    default: "Терра Холода — Холодильные решения для бизнеса",
+    template: "%s | Холодильное оборудование для бизнеса",
+    default: "Терра-Холод — Холодильное оборудование для бизнеса",
   },
   description:
-    "Терра Холода предлагает эффективные решения для охлаждения. Высококачественное холодильное оборудование для вашего бизнеса.",
+    "Терра-холод предлагает эффективные решения для охлаждения. Надежное холодильное оборудование от производителя.",
   icons: "/logo.svg",
 };
 
