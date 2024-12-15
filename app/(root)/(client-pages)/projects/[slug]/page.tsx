@@ -37,8 +37,9 @@ const PostPage = async ({ params }: Props) => {
       <HeroForPostPage
         imgUrl={post?.featuredImage?.node?.sourceUrl}
         title={post.title}
+        date={formattedDate}
       />
-      <PostText content={post?.content} date={formattedDate} />
+      <PostText content={post?.content} />
     </>
   );
 };

@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --primary: #2B2828;
+  --primary: #2b2828;
   --secondary: #323232;
-  --accent: #3760CA;
+  --accent: #3760ca;
   --accent-hov: #3761ca44;
 }
 
@@ -15,15 +15,39 @@ body {
   letter-spacing: -2%;
   font-size: 23px;
   line-height: 134%;
-  background: #FCFCFC;
+  background: #fcfcfc;
 }
 
 herograd {
-  background: linear-gradient(122deg, #EBECE9 0%, #81898D 100%);
+  background: linear-gradient(122deg, #ebece9 0%, #81898d 100%);
 }
 
 @layer base {
   :root {
     --radius: 0.5rem;
   }
+}
+
+.article-wp {
+  @apply max-w-4xl mx-auto;
+}
+.article-wp p {
+  @apply mt-5;
+}
+
+.article-wp h3 {
+  @apply text-3xl uppercase font-medium;
+}
+.article-wp h4 {
+  @apply text-2xl font-bold;
+}
+
+.article-wp .wp-block-heading {
+  @apply mt-5;
+}
+.article-wp .wp-block-list {
+  @apply mt-5;
+}
+.article-wp .wp-block-list li {
+  @apply pl-6;
 }

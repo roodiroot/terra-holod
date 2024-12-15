@@ -18,8 +18,10 @@ const HeadFooter = () => {
           Cвязаться
         </Button>
       </OpenModalBatton>
-      <Button className="md:hidden" size="icon">
-        <Icons.consultant className="w-6 stroke-white" />
+      <Button asChild className="md:hidden" size="icon">
+        <a href="tel:+79376766997">
+          <Icons.consultant className="w-6 stroke-white" />
+        </a>
       </Button>
     </div>
   );
