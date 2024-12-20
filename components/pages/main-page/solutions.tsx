@@ -173,7 +173,7 @@ const ProjectItem = ({
         <div className="text-sm space-y-1">
           <span className="italic">{date}</span>
           <article
-            className=""
+            className=" line-clamp-4"
             dangerouslySetInnerHTML={{ __html: excerpt }}
           ></article>
         </div>

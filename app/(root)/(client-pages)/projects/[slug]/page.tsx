@@ -18,14 +18,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: "Выполненные проекты",
-    description: post.title,
+    description: post?.title || "",
   };
 }
 
 const PostPage = async ({ params }: Props) => {
   const slug = (await params).slug;
   const post = await getPostBySlug(slug);
-  const date = new Date(post.date);
+  const date = new Date(post?.date);
   const formattedDate = date.toLocaleDateString("ru-RU", {
     day: "2-digit",
     month: "long",
@@ -36,10 +36,10 @@ const PostPage = async ({ params }: Props) => {
     <>
       <HeroForPostPage
         imgUrl={post?.featuredImage?.node?.sourceUrl}
-        title={post.title}
+        title={post?.title}
         date={formattedDate}
       />
-      <PostText content={post?.content} />
+      <PostText content={post?.content || ""} />
     </>
   );
 };

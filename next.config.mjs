@@ -5,7 +5,7 @@ const nextConfig = {
         remotePatterns: [
           {
             protocol: 'http',
-            hostname: 's9xaqu8t.beget.tech',
+            hostname: 'igusev0d.beget.tech',
             port: '',
             pathname: '/wp-content/**',
           },
