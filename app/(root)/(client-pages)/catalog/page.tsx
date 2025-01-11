@@ -1,8 +1,6 @@
 import { getAllProducts } from "@/lib/wp-api";
-import HeroContainer from "@/components/pages/hero-container";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import CardItem from "@/components/pages/general/card-item";
+import HeroContainer from "@/components/pages/hero-container";
 
 export const metadata = {
   title: "Каталог холодильного оборудования Терра-Холод",

@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons/icons";
 import SectionContainer from "@/components/section-container";
