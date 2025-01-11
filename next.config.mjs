@@ -7,7 +7,7 @@ const nextConfig = {
             protocol: 'http',
             hostname: 'igusev0d.beget.tech',
             port: '',
-            pathname: '/wp-content/**',
+            pathname: '/**',
           },
         ],
       },

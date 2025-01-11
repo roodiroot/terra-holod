@@ -13,6 +13,31 @@ export interface Post {
   };
 }
 
+interface Products {
+  productsFields: {
+    location: string;
+    operatingRange: string;
+    volumeOfRefrigerator: string;
+    consumption: string;
+    img: {
+      node: {
+        link: string;
+      };
+    };
+    typeSplitSistem: {
+      nodes: [
+        {
+          slug: string;
+          name: string;
+          taxonomyName: string;
+        }
+      ];
+    };
+  };
+  title: string;
+  slug: string;
+}
+
 async function fetchAPI(query = "", { variables }: Record<string, any> = {}) {
   const headers = { "Content-Type": "application/json" };
 
@@ -34,10 +59,12 @@ async function fetchAPI(query = "", { variables }: Record<string, any> = {}) {
 }
 
 //Получаем все посты
-export async function getAllPostsWithSlug(): Promise<Post[]> {
+export async function getAllPostsWithSlug(limit?: number): Promise<Post[]> {
   const response = await fetchAPI(`
     query getAllPostsWithSlug {
-      posts {
+      posts(first: ${
+        limit || 100
+      }, where: {orderby: {field: DATE, order: ASC}}) {
         nodes {
           slug
           title
@@ -55,6 +82,41 @@ export async function getAllPostsWithSlug(): Promise<Post[]> {
   `);
 
   return response.posts.nodes;
+}
+//Получаем все товары
+export async function getAllProducts(limit?: number): Promise<Products[]> {
+  const response = await fetchAPI(`
+    query getAllPostsWithSlug {
+      products(first: ${
+        limit || 100
+      }, where: {orderby: {field: DATE, order: ASC}}) {
+        nodes {
+          productsFields {
+            location
+            operatingRange
+            volumeOfRefrigerator
+            consumption
+            img {
+              node {
+                link
+              }
+            }
+            typeSplitSistem {
+              nodes {
+                slug
+                name
+                taxonomyName
+              }
+            }
+          }
+          title
+          slug
+        }
+      }
+    }
+  `);
+
+  return response.products.nodes;
 }
 
 export async function getPostBySlug(slug: string): Promise<Post> {

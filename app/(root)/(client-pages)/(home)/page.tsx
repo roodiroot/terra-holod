@@ -6,6 +6,7 @@ import TehnologyForMainPage from "@/components/pages/main-page/tehnology";
 import ActionLine from "@/components/pages/main-page/action-line";
 import FeaturesForMainPage from "@/components/pages/main-page/features";
 import SolutionsForMainPage from "@/components/pages/main-page/solutions";
+import ProductsForMainPage from "@/components/pages/main-page/products";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <PartnersForMainPage />
       <FeaturesForMainPage />
       <SolutionsForMainPage />
+      <ProductsForMainPage />
       <TehnologyForMainPage />
       <ActionLine />
     </div>

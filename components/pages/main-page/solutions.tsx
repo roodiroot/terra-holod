@@ -1,14 +1,16 @@
-import { cn } from "@/lib/utils";
-import SectionContainer from "@/components/section-container";
-import { Icons } from "@/components/icons/icons";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
+
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Icons } from "@/components/icons/icons";
 import { getAllPostsWithSlug } from "@/lib/wp-api";
+
+import SectionContainer from "@/components/section-container";
 import OpenModalBatton from "@/components/active-components/open-modal-batton";
 
 const SolutionsForMainPage = async () => {
-  const posts = await getAllPostsWithSlug();
+  const posts = await getAllPostsWithSlug(3);
   return (
     <SectionContainer>
       <div className="max-w-xl mx-auto pt-4 sm:pt-[30px]  pb-[30px] lg:max-w-none lg:pt-[85px] lg:mx-0">

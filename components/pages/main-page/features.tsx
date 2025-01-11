@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons/icons";
 import SectionContainer from "@/components/section-container";
 import OpenModalBatton from "@/components/active-components/open-modal-batton";
+import ClassicTitleModule from "../general/classic-title-module";
 
 const featuresList = [
   {
@@ -44,28 +45,6 @@ const FeaturesForMainPage = () => {
 };
 
 export default FeaturesForMainPage;
-
-interface ClassicTitleModuleProps extends React.HTMLAttributes<HTMLDivElement> {
-  suptitle: string;
-  title: string;
-}
-const ClassicTitleModule: React.FC<ClassicTitleModuleProps> = ({
-  suptitle,
-  title,
-  className,
-  ...props
-}) => {
-  return (
-    <div {...props} className={cn("space-y-5", className)}>
-      <p className="font-semibold text-balance text-3xl text-[--accent] text-center lg:text-left">
-        {suptitle}
-      </p>
-      <h2 className="text-4xl text-balance text-center mx-auto lg:mx-0 lg:text-left  lg:text-5xl max-w-2xl font-bold">
-        {title}
-      </h2>
-    </div>
-  );
-};
 
 interface FeaturesItemProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
