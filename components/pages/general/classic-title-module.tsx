@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 interface ClassicTitleModuleProps extends React.HTMLAttributes<HTMLDivElement> {
-  suptitle: string;
+  suptitle?: string;
   title: string;
 }
 const ClassicTitleModule: React.FC<ClassicTitleModuleProps> = ({

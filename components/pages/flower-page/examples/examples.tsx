@@ -6,7 +6,7 @@ import OpenModalBatton from "@/components/active-components/open-modal-batton";
 
 const ExamplesSection = () => {
   return (
-    <SectionContainer className="">
+    <SectionContainer className="bg-[#ECEDEB]">
       <div className="pb-[100px] md:pb-[160px] pt-[60px]">
         <h2 className="text-4xl text-center mx-auto lg:mx-0 lg:text-left lg:text-5xl max-w-2xl font-bold">
           Комплект поставки холодильного оборудования

@@ -1,16 +1,12 @@
 import { getAllProducts } from "@/lib/wp-api";
+
 import CardItem from "@/components/pages/general/card-item";
 import HeroContainer from "@/components/pages/hero-container";
 
-export const metadata = {
-  title: "Каталог холодильного оборудования Терра-Холод",
-  description:
-    "Узнайте о наших товарах. Мы предоставляем решения для хранения и транспортировки замороженных продуктов.",
-};
-
-const ProductsPage = async () => {
-  const products = await getAllProducts({});
-
+export default async function BeerShopPage() {
+  const products = await getAllProducts({
+    application: "Для пивного магазина",
+  });
   return (
     <HeroContainer>
       <div className="pb-[30px]">
@@ -34,6 +30,4 @@ const ProductsPage = async () => {
       </div>
     </HeroContainer>
   );
-};
-
-export default ProductsPage;
+}

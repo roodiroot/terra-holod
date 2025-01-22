@@ -1,18 +1,27 @@
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
+import { Button } from "@/components/ui/button";
+
 interface CardItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  location?: string;
+  title: string;
   volumeOfRefrigerator?: string;
   operatingRange?: string;
   img?: string;
+  application?: string;
+  cooling_capacity?: string;
+  voltage?: string;
+  consumption?: string;
 }
 
 const CardItem: React.FC<CardItemProps> = ({
-  location,
+  title,
   volumeOfRefrigerator,
+  consumption,
   operatingRange,
   img,
+  application,
+  cooling_capacity,
+  voltage,
 }) => {
   return (
     <div className="w-full rounded-[40px] shadow-sm overflow-hidden bg-[#F7F6F9]">
@@ -58,27 +67,59 @@ const CardItem: React.FC<CardItemProps> = ({
       </div>
       <div className="px-5 py-4">
         <div className="">
-          <p className="text-xs uppercase text-[--accent] font-semibold max-w-[150px] line-clamp-2">
-            Сплит системы холодильные (+2 - +15)
-          </p>
-          <h4 className="font-bold">От 9 м³ до 15 м³</h4>
+          {application ? (
+            <p className="text-xs uppercase text-[--accent] font-semibold  line-clamp-2 text-balance">
+              {application} с камерой {volumeOfRefrigerator || ""}
+            </p>
+          ) : (
+            ""
+          )}
+          <h4 className="font-bold">Terra {title}</h4>
           <ul className="text-sm mt-2 max-w-[240px]">
-            <li className="w-full flex justify-between">
-              <p className="">Расположение.</p>
-              <p className="font-semibold text-right">{location || ""}</p>
-            </li>
-            <li className="w-full flex justify-between">
-              <p className="">Объём камеры (м³).</p>
-              <p className="font-semibold  text-right">
-                {volumeOfRefrigerator || ""}
-              </p>
-            </li>
-            <li className="w-full flex justify-between">
-              <p className="">Потребление э/э.</p>
-              <p className="font-semibold  text-right">
-                {operatingRange || ""}
-              </p>
-            </li>
+            {cooling_capacity ? (
+              <li className="w-full flex justify-between">
+                <p className="line-clamp-1">Холодопроизводительность</p>
+                <p className="font-semibold text-right">{cooling_capacity}</p>
+              </li>
+            ) : (
+              ""
+            )}
+            {volumeOfRefrigerator ? (
+              <li className="w-full flex justify-between">
+                <p className="">Объём камеры</p>
+                <p className="font-semibold  text-right">
+                  {volumeOfRefrigerator}
+                </p>
+              </li>
+            ) : (
+              ""
+            )}
+            {operatingRange ? (
+              <li className="w-full flex justify-between">
+                <p className="">Температурный режим</p>
+                <p className="font-semibold  text-right">{operatingRange}</p>
+              </li>
+            ) : (
+              ""
+            )}
+
+            {consumption ? (
+              <li className="w-full flex justify-between">
+                <p className="">Энергопотребление</p>
+                <p className="font-semibold  text-right">{consumption}</p>
+              </li>
+            ) : (
+              ""
+            )}
+
+            {voltage ? (
+              <li className="w-full flex justify-between">
+                <p className="">Напряжение</p>
+                <p className="font-semibold  text-right">{voltage}</p>
+              </li>
+            ) : (
+              ""
+            )}
           </ul>
           <div className="mt-4">
             <Button size="sm">Консультация</Button>

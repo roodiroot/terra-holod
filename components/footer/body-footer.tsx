@@ -12,7 +12,7 @@ const BoodyFooter = () => {
       <div className="mt-[30px] grid grid-cols-1 gap-y-6 sm:grid-cols-2">
         <div className="flex flex-col gap-y-2 text-base">
           <h4 className="font-semibold">Меню</h4>
-          {menu.map((i) => (
+          {menu.pages.map((i) => (
             <Link key={i.href} href={i.href}>
               {i.page}
             </Link>

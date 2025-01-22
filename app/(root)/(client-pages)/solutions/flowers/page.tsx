@@ -4,9 +4,9 @@ import AboutSection from "@/components/pages/flower-page/about";
 import Partners from "@/components/pages/flower-page/partners/partners";
 import ExamplesSection from "@/components/pages/flower-page/examples/examples";
 import FeaturesSection from "@/components/pages/flower-page/features/features";
-import VariantsSection from "@/components/pages/flower-page/variants/variants";
+// import VariantsSection from "@/components/pages/flower-page/variants/variants";
 
-export default function AboutPage() {
+export default async function AboutPage() {
   return (
     <div className="">
       <HeroFlowers />
@@ -14,7 +14,7 @@ export default function AboutPage() {
       <Partners />
       <FeaturesSection />
       <CTA />
-      <VariantsSection />
+      {/* <VariantsSection /> */}
       <ExamplesSection />
     </div>
   );

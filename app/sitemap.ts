@@ -40,6 +40,12 @@ export default async function getSitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: "https://terraholod.ru/solutions/beer-shop",
+      lastModified: new Date(),
+      changeFrequency: "monthly" as ChangeFrequency,
+      priority: 0.8,
+    },
+    {
       url: "https://terraholod.ru/contacts",
       lastModified: new Date(),
       changeFrequency: "weekly" as ChangeFrequency,

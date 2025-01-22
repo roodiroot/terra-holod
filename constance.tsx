@@ -1,7 +1,7 @@
 export const contactsList = [
-  "Адрес: гор. Саранск, ул. Строительная, дом 11, офис 202",
+  "Адрес: гор. Саранск, ул. Строительная, дом 1/11, строение 2, офис 214",
   <div>
-    Email:{" "}
+    <span className="font-medium">Email:</span>{" "}
     <a
       className="font-bold text-[--accent]"
       href="mailto:igusev@terra-holod.ru"
@@ -10,9 +10,14 @@ export const contactsList = [
     </a>
   </div>,
   <div>
-    Телефон:{" "}
-    <a className="font-bold text-[--accent]" href="tel:+79376766997">
-      +7 937 676-69-97
-    </a>
+    <span className="font-medium">Телефоны:</span>{" "}
+    <div className="flex flex-col">
+      <a className="font-bold text-[--accent]" href="tel:+79271712529">
+        8-927-171-25-29
+      </a>
+      <a className="font-bold text-[--accent]" href="tel:+78342303355">
+        8(8342) 30-33-55
+      </a>
+    </div>
   </div>,
 ];

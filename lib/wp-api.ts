@@ -1,3 +1,5 @@
+import { filterProductsByName } from "./utils";
+
 const API_URL = process.env.WORDPRESS_API_URL || "";
 
 export interface Post {
@@ -13,25 +15,22 @@ export interface Post {
   };
 }
 
-interface Products {
+export interface Products {
   productsFields: {
-    location: string;
+    application: {
+      nodes: {
+        name: string;
+      }[];
+    };
+    cooling_capacity?: string;
     operatingRange: string;
     volumeOfRefrigerator: string;
     consumption: string;
+    voltage?: string;
     img: {
       node: {
         link: string;
       };
-    };
-    typeSplitSistem: {
-      nodes: [
-        {
-          slug: string;
-          name: string;
-          taxonomyName: string;
-        }
-      ];
     };
   };
   title: string;
@@ -84,28 +83,31 @@ export async function getAllPostsWithSlug(limit?: number): Promise<Post[]> {
   return response.posts.nodes;
 }
 //Получаем все товары
-export async function getAllProducts(limit?: number): Promise<Products[]> {
+export async function getAllProducts({
+  limit,
+  application,
+}: {
+  limit?: number;
+  application?: string;
+}): Promise<Products[]> {
   const response = await fetchAPI(`
     query getAllPostsWithSlug {
-      products(first: ${
-        limit || 100
-      }, where: {orderby: {field: DATE, order: ASC}}) {
+      products(first: 100, where: {orderby: {field: TITLE, order: ASC}}) {
         nodes {
           productsFields {
-            location
+            application {
+              nodes {
+                name
+              }
+            }
+            cooling_capacity
             operatingRange
             volumeOfRefrigerator
             consumption
+            voltage
             img {
               node {
                 link
-              }
-            }
-            typeSplitSistem {
-              nodes {
-                slug
-                name
-                taxonomyName
               }
             }
           }
@@ -116,7 +118,16 @@ export async function getAllProducts(limit?: number): Promise<Products[]> {
     }
   `);
 
-  return response.products.nodes;
+  let data = response.products.nodes;
+
+  if (application) {
+    data = filterProductsByName(response.products.nodes, application);
+  }
+  if (limit) {
+    data = data.slice(0, limit);
+  }
+
+  return data;
 }
 
 export async function getPostBySlug(slug: string): Promise<Post> {

@@ -3,36 +3,35 @@ import Image from "next/image";
 import ContactsForm from "@/components/forms/contacts-form.tsx/contacts-form";
 import HeroContainer from "../hero-container";
 import { contactsList } from "@/constance";
+import MapForContact from "./map-for-contact";
 
 const HeroContacts = () => {
   return (
     <HeroContainer>
       <div className="">
-        <div className="grid lg:grid-cols-3 gap-8 ">
-          <div className="space-y-4">
+        <div className="max-w-xl mx-auto lg:max-w-none lg:grid lg:grid-cols-3 gap-8 ">
+          <div className="space-y-4 col-span-1">
             <div className="">
               <h3 className="font-semibold">Адрес:</h3>{" "}
-              <span>{contactsList[0].toString().slice(6)}</span>
+              <div className="text-balance">
+                {contactsList[0].toString().slice(6)}
+              </div>
             </div>
             <div className="">
-              <h3 className="font-semibold">Email:</h3>{" "}
-              <span>{contactsList[1]}</span>
+              {/* <h3 className="font-semibold">Email:</h3>{" "} */}
+              <div>{contactsList[1]}</div>
             </div>
             <div className="">
-              <h3 className="font-semibold">Телефон:</h3>{" "}
-              <span>{contactsList[2]}</span>
+              {/* <h3 className="font-semibold">Телефон:</h3>{" "} */}
+              <div>{contactsList[2]}</div>
             </div>
-            {/* <p className="mt-4 text-xl">
-              Обеспечивают точное поддержание температуры внутри камеры,
-              создавая идеальные условия для хранения цветов. Наши блоки
-              адаптированы под разные объемы и требования.
-            </p> */}
           </div>
+          <MapForContact />
         </div>
       </div>
-      <div className="mt-20 ">
-        <div className="flex flex-col gap-10 md:flex-row md:gap-16 items-center">
-          <div className="aspect-[0.82/1] relative bg-slate-100 flex-1 rounded-[40px] md:rounded-[60px] overflow-hidden">
+      <div className="mt-8 lg:mt-20">
+        <div className="max-w-xl mx-auto flex flex-col-reverse gap-8 lg:max-w-none lg:gap-10 lg:flex-row md:gap-16 items-center">
+          <div className="aspect-square w-full lg:aspect-[0.82/1] relative bg-slate-100 flex-1 rounded-[40px] md:rounded-[60px] overflow-hidden">
             <Image
               alt="store"
               width={416}
