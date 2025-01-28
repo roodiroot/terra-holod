@@ -23,6 +23,7 @@ export default async function BeerShopPage() {
                 title={i.title}
                 application={i.productsFields.application.nodes[0].name}
                 consumption={i.productsFields.consumption}
+                price={i.productsFields.price}
               />
             ))}
           </ul>

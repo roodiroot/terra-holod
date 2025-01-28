@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
+import ActionButton from "./action-button";
 
 interface CardItemProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -11,6 +12,7 @@ interface CardItemProps extends React.HTMLAttributes<HTMLDivElement> {
   cooling_capacity?: string;
   voltage?: string;
   consumption?: string;
+  price?: number | null;
 }
 
 const CardItem: React.FC<CardItemProps> = ({
@@ -22,6 +24,7 @@ const CardItem: React.FC<CardItemProps> = ({
   application,
   cooling_capacity,
   voltage,
+  price,
 }) => {
   return (
     <div className="w-full rounded-[40px] shadow-sm overflow-hidden bg-[#F7F6F9]">
@@ -121,8 +124,17 @@ const CardItem: React.FC<CardItemProps> = ({
               ""
             )}
           </ul>
-          <div className="mt-4">
-            <Button size="sm">Консультация</Button>
+          <div className="mt-4 flex justify-between gap-4 items-end">
+            <Button size="sm">
+              <ActionButton>Консультация</ActionButton>{" "}
+            </Button>
+            <span className=" whitespace-nowrap">
+              {price ? (
+                new Intl.NumberFormat("ru").format(price) + " р."
+              ) : (
+                <span className="text-sm font-semibold">По запросу</span>
+              )}
+            </span>
           </div>
         </div>
       </div>

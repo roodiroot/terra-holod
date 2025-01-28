@@ -25,6 +25,7 @@ const ProductsForMainPage = async () => {
                 img={i.productsFields.img?.node?.link}
                 operatingRange={i.productsFields?.operatingRange}
                 consumption={i.productsFields.consumption}
+                price={i.productsFields.price}
               />
             ))}
           </ul>

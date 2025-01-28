@@ -26,6 +26,7 @@ export interface Products {
     operatingRange: string;
     volumeOfRefrigerator: string;
     consumption: string;
+    price: number | null;
     voltage?: string;
     img: {
       node: {
@@ -100,6 +101,7 @@ export async function getAllProducts({
                 name
               }
             }
+            price
             cooling_capacity
             operatingRange
             volumeOfRefrigerator
