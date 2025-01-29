@@ -43,6 +43,7 @@ async function fetchAPI(query = "", { variables }: Record<string, any> = {}) {
 
   const res = await fetch(API_URL, {
     headers,
+    cache: "no-store",
     method: "POST",
     body: JSON.stringify({
       query,
