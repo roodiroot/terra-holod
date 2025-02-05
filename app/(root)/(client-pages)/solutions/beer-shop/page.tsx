@@ -14,6 +14,7 @@ export default async function BeerShopPage() {
           <ul className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {products.map((i) => (
               <CardItem
+                slug={i.slug}
                 key={i.slug}
                 cooling_capacity={i?.productsFields?.cooling_capacity}
                 voltage={i.productsFields.voltage}

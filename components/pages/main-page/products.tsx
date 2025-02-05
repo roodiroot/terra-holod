@@ -19,6 +19,7 @@ const ProductsForMainPage = async () => {
             {flowers.map((i) => (
               <CardItem
                 key={i.slug}
+                slug={i.slug}
                 title={i.title}
                 cooling_capacity={i?.productsFields?.cooling_capacity}
                 voltage={i.productsFields.voltage}

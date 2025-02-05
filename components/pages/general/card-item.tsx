@@ -2,9 +2,11 @@ import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import ActionButton from "./action-button";
+import TitleCardItem from "./title-card-item";
 
 interface CardItemProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
+  slug: string;
   volumeOfRefrigerator?: string;
   operatingRange?: string;
   img?: string;
@@ -17,6 +19,7 @@ interface CardItemProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const CardItem: React.FC<CardItemProps> = ({
   title,
+  slug,
   volumeOfRefrigerator,
   consumption,
   operatingRange,
@@ -30,7 +33,7 @@ const CardItem: React.FC<CardItemProps> = ({
     <div className="w-full rounded-[40px] shadow-sm overflow-hidden bg-[#F7F6F9]">
       <div className="relative w-full aspect-square bg-[#7493C9]">
         <svg
-          className="absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          className="absolute z-0 w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
           width="577"
           height="577"
           viewBox="0 0 577 577"
@@ -68,7 +71,7 @@ const CardItem: React.FC<CardItemProps> = ({
           {img && <Image fill src={img} alt="mini-product" />}
         </div>
       </div>
-      <div className="px-5 py-4">
+      <div className="relative z-10 px-5 py-4">
         <div className="">
           {application ? (
             <p className="text-xs uppercase text-[--accent] font-semibold  line-clamp-2 text-balance">
@@ -77,7 +80,7 @@ const CardItem: React.FC<CardItemProps> = ({
           ) : (
             ""
           )}
-          <h4 className="font-bold">Terra {title}</h4>
+          <TitleCardItem title={title} slug={slug} />
           <ul className="text-sm mt-2 max-w-[240px]">
             {cooling_capacity ? (
               <li className="w-full flex justify-between">

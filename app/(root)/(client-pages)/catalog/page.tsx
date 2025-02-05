@@ -19,6 +19,7 @@ const ProductsPage = async () => {
             {products.map((i) => (
               <CardItem
                 key={i.slug}
+                slug={i.slug}
                 cooling_capacity={i?.productsFields?.cooling_capacity}
                 voltage={i.productsFields.voltage}
                 img={i.productsFields.img?.node?.link}

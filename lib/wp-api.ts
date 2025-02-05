@@ -137,7 +137,7 @@ export async function getPostBySlug(slug: string): Promise<Post> {
   const decodedStr = decodeURIComponent(slug);
   const response = await fetchAPI(
     `
-    query SinglePost($id: ID!, $idType: PostIdType!) {
+    query SingleProduct($id: ID!, $idType: PostIdType!) {
       post(id: $id, idType: $idType) {
         title
         slug
@@ -160,6 +160,42 @@ export async function getPostBySlug(slug: string): Promise<Post> {
   );
 
   return response.post;
+}
+
+export async function getProductBySlug(slug: string): Promise<Products> {
+  const decodedStr = decodeURIComponent(slug);
+  const response = await fetchAPI(
+    `
+    query getAllPostsWithSlug {
+      products(where: {name: "${decodedStr}"}) {
+        nodes {
+          productsFields {
+            application {
+              nodes {
+                name
+              }
+            }
+            price
+            cooling_capacity
+            operatingRange
+            volumeOfRefrigerator
+            consumption
+            voltage
+            img {
+              node {
+                link
+              }
+            }
+          }
+          title
+          slug
+        }
+      }
+    }
+    `
+  );
+
+  return response.products.nodes[0];
 }
 
 //Получаем все посты
