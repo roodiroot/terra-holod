@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { getAllPostsWithSlug } from "@/lib/wp-api";
+import { getAllPostsWithSlug, getAllProducts } from "@/lib/wp-api";
 
 type ChangeFrequency =
   | "yearly"
@@ -13,6 +13,7 @@ type ChangeFrequency =
 
 export default async function getSitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getAllPostsWithSlug();
+  const products = await getAllProducts({});
 
   const staticPages = [
     {
@@ -60,5 +61,12 @@ export default async function getSitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...dynamicPages];
+  const dinamicProducts = products.map((product) => ({
+    url: `https://terraholod.ru/catalog/${product.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as ChangeFrequency,
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...dynamicPages, ...dinamicProducts];
 }
