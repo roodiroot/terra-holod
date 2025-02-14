@@ -30,7 +30,7 @@ const CardItem: React.FC<CardItemProps> = ({
   price,
 }) => {
   return (
-    <div className="w-full rounded-[40px] shadow-sm overflow-hidden bg-[#F7F6F9]">
+    <div className="w-full rounded-[40px] overflow-hidden bg-[#F7F6F9] shadow-md">
       <div className="relative w-full aspect-square bg-[#7493C9]">
         <svg
           className="absolute z-0 w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"

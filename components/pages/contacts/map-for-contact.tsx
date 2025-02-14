@@ -3,7 +3,7 @@
 import { YMaps, Map, ZoomControl, Placemark } from "@pbe/react-yandex-maps";
 const MapForContact = () => {
   return (
-    <div className="h-full relative overflow-hidden mt-8 aspect-square lg:mt-0 lg:aspect-auto bg-gray-500 lg:col-span-2 rounded-[40px]">
+    <div className="h-full shadow-lg relative overflow-hidden mt-8 aspect-square lg:mt-0 lg:aspect-auto bg-gray-100 lg:col-span-2 rounded-[40px]">
       <YMaps
         query={{
           lang: "ru_RU",

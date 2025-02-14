@@ -67,7 +67,7 @@ const ProjectItem = ({
   date: string;
 }) => {
   return (
-    <div className="min-w-[290px] p-4 rounded-[40px] flex-1 relative bg-[#F6F6F6]  overflow-hidden md:p-7 md:rounded-[60px]">
+    <div className="min-w-[290px] p-4 rounded-[40px] flex-1 relative bg-[#F6F6F6] shadow-sm  overflow-hidden md:p-7 md:rounded-[60px]">
       <Link href={`/projects/${slug}`} className="absolute inset-0" />
       <div className="w-full h-full flex flex-col gap-4 justify-between">
         <div className="flex gap-4">

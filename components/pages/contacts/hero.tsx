@@ -8,7 +8,7 @@ import MapForContact from "./map-for-contact";
 const HeroContacts = () => {
   return (
     <HeroContainer>
-      <div className="">
+      <div>
         <div className="max-w-xl mx-auto lg:max-w-none lg:grid lg:grid-cols-3 gap-8 ">
           <div className="space-y-4 col-span-1">
             <div className="">
@@ -30,8 +30,8 @@ const HeroContacts = () => {
         </div>
       </div>
       <div className="mt-8 lg:mt-20">
-        <div className="max-w-xl mx-auto flex flex-col-reverse gap-8 lg:max-w-none lg:gap-10 lg:flex-row md:gap-16 items-center">
-          <div className="aspect-square w-full lg:aspect-[0.82/1] relative bg-slate-100 flex-1 rounded-[40px] md:rounded-[60px] overflow-hidden">
+        <div className="max-w-xl pb-10 mx-auto flex flex-col-reverse gap-8 lg:max-w-none lg:gap-10 lg:flex-row md:gap-16 items-center">
+          <div className=" shadow-lg aspect-square w-full lg:aspect-[0.82/1] relative bg-slate-100 flex-1 rounded-[40px] md:rounded-[60px] overflow-hidden">
             <Image
               alt="store"
               width={416}

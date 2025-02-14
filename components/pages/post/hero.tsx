@@ -12,7 +12,7 @@ const HeroForPostPage = ({
   imgUrl: string;
   date: string;
 }) => {
-  console.log(date);
+  // console.log(date);
   return (
     <div className="pb-28 mb-[30px] bg-white overflow-hidden pt-[100px]">
       <Container>

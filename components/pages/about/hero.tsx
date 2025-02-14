@@ -4,7 +4,7 @@ import HeroContainer from "../hero-container";
 const HeroAbout = () => {
   return (
     <HeroContainer>
-      <div className="relative h-[550px] w-full rounded-[40px] overflow-hidden md:rounded-[60px]  md:-translate-y-8">
+      <div className="relative shadow-lg h-[550px] w-full rounded-[40px] overflow-hidden md:rounded-[60px]  md:-translate-y-8">
         <Image
           alt="about_page"
           width={796}

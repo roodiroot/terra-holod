@@ -10,6 +10,8 @@ import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons/icons";
 import { Form, FormControl } from "@/components/ui/form";
 import InputPhoneMask from "@/components/ui/input-phone-mask";
+import { sendMessagePopup } from "@/actions/sender";
+import { toast } from "sonner";
 
 interface CtaFormProps extends React.HTMLAttributes<HTMLFormElement> {}
 
@@ -22,8 +24,17 @@ const CtaForm: React.FC<CtaFormProps> = ({ className, ...props }) => {
   });
 
   async function onSubmit(values: z.infer<typeof formPromptSchema>) {
-    console.log(values);
-    form.reset();
+    await sendMessagePopup({ ...values, name: "CTA" })
+      .then((d) => {
+        if (d.succsess) {
+          toast(d.succsess);
+          return;
+        }
+        toast(d.error);
+      })
+      .finally(() => {
+        form.reset();
+      });
   }
 
   return (
@@ -37,7 +48,7 @@ const CtaForm: React.FC<CtaFormProps> = ({ className, ...props }) => {
           <div className="h-[50px] pr-6 rounded-full border-2 border-gray-800 flex gap-4">
             <Icons.consultant
               className={cn(
-                "w-6 stroke-slate-200 ml-4",
+                "w-6 stroke-[--accent] ml-4",
                 form.formState.errors?.phone && " stroke-red-500"
               )}
             />
@@ -50,7 +61,7 @@ const CtaForm: React.FC<CtaFormProps> = ({ className, ...props }) => {
                     setValue={onChange}
                     value={value}
                     className={cn(
-                      "border-none mt-0.5 outline-none h-full bg-inherit flex-1 font-medium text-[--accent] placeholder:text-gray-200"
+                      "relative z-10 border-none mt-0.5 outline-none h-full bg-inherit flex-1 font-medium text-[--accent] placeholder:text-gray-200"
                     )}
                   />
                 </FormControl>

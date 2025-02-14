@@ -11,9 +11,9 @@ export default async function AboutPage() {
     <div className="">
       <HeroFlowers />
       <AboutSection />
+      <CTA className="bg-[#ECEDEB]" />
       <Partners />
       <FeaturesSection />
-      <CTA />
       {/* <VariantsSection /> */}
       <ExamplesSection />
     </div>

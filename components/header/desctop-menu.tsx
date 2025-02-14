@@ -13,7 +13,7 @@ const DesctopMenu = () => {
   return (
     <div className="hidden md:flex gap-8 relative z-20">
       {/* Flyout menus */}
-      <Popover className="group text-base">
+      <Popover className="group text-base lg:hidden">
         {({ close }) => (
           <>
             <PopoverButton className="flex items-center gap-2 group-data-[open]:text-[--accent]">
@@ -40,6 +40,12 @@ const DesctopMenu = () => {
           </>
         )}
       </Popover>
+      <MenuLink className="hidden lg:inline-flex" href="/solutions/flowers">
+        Цветочные магазины
+      </MenuLink>
+      <MenuLink className="hidden lg:inline-flex" href="/solutions/beer-shop">
+        Пивные магазины
+      </MenuLink>
       {menu.pages.map((i) => (
         <MenuLink key={i.page} href={i.href}>
           {i.page}

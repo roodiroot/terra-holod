@@ -1,19 +1,16 @@
 import Link from "next/link";
-import Image from "next/image";
 
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons/icons";
 import { getAllPostsWithSlug } from "@/lib/wp-api";
 
 import SectionContainer from "@/components/section-container";
-import OpenModalBatton from "@/components/active-components/open-modal-batton";
 
 const SolutionsForMainPage = async () => {
   const posts = await getAllPostsWithSlug(3);
   return (
     <SectionContainer>
-      <div className="max-w-xl mx-auto pt-4 sm:pt-[30px]  pb-[30px] lg:max-w-none lg:pt-[85px] lg:mx-0">
+      {/* <div className="max-w-xl mx-auto pt-4 sm:pt-[30px]  pb-[30px] lg:max-w-none lg:pt-[85px] lg:mx-0">
         <div className="grid  gap-y-4 grid-cols-1 md:gap-y-6 lg:gap-x-6 lg:grid-cols-3">
           <BentooContainer className="relative min-h-[390px]">
             <Image
@@ -102,8 +99,8 @@ const SolutionsForMainPage = async () => {
             </div>
           </BentooContainer>
         </div>
-      </div>
-      <div className="pb-[30px]">
+      </div> */}
+      <div className="py-[30px]">
         <div className="max-w-xl mx-auto flex flex-col gap-4 md:gap-6 lg:max-w-none lg:mx-0">
           <ul className="flex flex-wrap flex-row gap-4 md:gap-6">
             {posts.map((i) => {

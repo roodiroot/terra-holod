@@ -8,13 +8,14 @@ import { cn } from "@/lib/utils";
 interface MenuLinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
   href: string;
 }
-const MenuLink: React.FC<MenuLinkProps> = ({ children, href }) => {
+const MenuLink: React.FC<MenuLinkProps> = ({ children, href, className }) => {
   const path = usePathname();
   return (
     <Link
       className={cn(
         path === href && "text-[--accent] font-medium",
-        "text-base"
+        "text-base",
+        className
       )}
       href={href}
     >
