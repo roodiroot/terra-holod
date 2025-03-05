@@ -26,7 +26,7 @@ const features = [
 const FeaturesSection = () => {
   return (
     <SectionContainer className="bg-[#ECEDEB]">
-      <div className="pt-[60px] pb-[30px]">
+      <div className="pt-[60px] pb-[100px] md:pb-[160px]">
         <p className="font-semibold text-3xl text-[--accent] text-center lg:text-left">
           Эффективные решения под ваш бизнес
         </p>

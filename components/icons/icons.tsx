@@ -1,4 +1,83 @@
 export const Icons = {
+  figure2: (props: React.HTMLAttributes<SVGElement>) => {
+    return (
+      <svg
+        width="243"
+        height="116"
+        viewBox="0 0 243 116"
+        fill="none"
+        {...props}
+      >
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M243 0.5C243 22.5914 225.091 40.5 203 40.5H75.5C54.7893 40.5 38 57.2893 38 78C38 98.7107 21.2107 115.5 0.5 115.5H243V0.5Z"
+          fill="white"
+        />
+      </svg>
+    );
+  },
+  figure1: (props: React.HTMLAttributes<SVGElement>) => {
+    return (
+      <svg
+        width="111"
+        height="113"
+        viewBox="0 0 111 113"
+        fill="none"
+        {...props}
+      >
+        <path
+          d="M0 112.971V113H111V0.5C111 21.2104 94.2104 38 73.5 38C52.7896 38 36 54.7896 36 75.5C36 95.708 20.0151 112.183 0 112.971Z"
+          fill="white"
+        />
+      </svg>
+    );
+  },
+  ex: (props: React.HTMLAttributes<SVGElement>) => {
+    return (
+      <svg width="38" height="37" viewBox="0 0 38 37" fill="none" {...props}>
+        <path
+          d="M22.5406 10.2681L28.1837 9.81589L29.0637 20.7972L23.4205 21.2494L22.5406 10.2681Z"
+          fill="#3760CA"
+        />
+        <path
+          d="M23.4205 21.2494L22.9684 15.6063L33.9497 14.7263L34.4019 20.3695L23.4205 21.2494Z"
+          fill="#3760CA"
+        />
+        <path
+          d="M26.8047 21.8383L27.2569 27.4814L16.2756 28.3614L15.8234 22.7182L26.8047 21.8383Z"
+          fill="#3760CA"
+        />
+        <path
+          d="M15.8234 22.7182L21.4665 22.2659L22.3465 33.2472L16.7033 33.6994L15.8234 22.7182Z"
+          fill="#3760CA"
+        />
+        <path
+          d="M15.2609 26.2229L9.61772 26.6751L8.73774 15.6938L14.3809 15.2416L15.2609 26.2229Z"
+          fill="#3760CA"
+        />
+        <path
+          d="M14.3809 15.2416L14.833 20.8848L3.85175 21.7647L3.39954 16.1216L14.3809 15.2416Z"
+          fill="#3760CA"
+        />
+        <path
+          d="M11.006 14.6754L10.5538 9.03221L21.5351 8.15223L21.9873 13.7954L11.006 14.6754Z"
+          fill="#3760CA"
+        />
+        <path
+          d="M21.9873 13.7954L16.3441 14.2477L15.4641 3.26643L21.1072 2.81421L21.9873 13.7954Z"
+          fill="#3760CA"
+        />
+      </svg>
+    );
+  },
+  lt: (props: React.HTMLAttributes<SVGElement>) => {
+    return (
+      <svg width="57" height="57" viewBox="0 0 57 57" fill="none" {...props}>
+        <path d="M0 57H57C25.5198 57 0 31.4802 0 0V57Z" fill="white" />
+      </svg>
+    );
+  },
   abstract: () => {
     return (
       <svg
