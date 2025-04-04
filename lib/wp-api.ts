@@ -23,6 +23,7 @@ export interface Products {
       }[];
     };
     cooling_capacity?: string;
+    description?: string;
     operatingRange: string;
     volumeOfRefrigerator: string;
     consumption: string;
@@ -176,6 +177,7 @@ export async function getProductBySlug(slug: string): Promise<Products> {
               }
             }
             price
+            description
             cooling_capacity
             operatingRange
             volumeOfRefrigerator

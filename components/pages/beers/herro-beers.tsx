@@ -1,10 +1,11 @@
+import Link from "next/link";
 import Image from "next/image";
 
 import HeroContainer from "../hero-container";
+import OpenModalBatton from "@/components/active-components/open-modal-batton";
+
 import { Icons } from "@/components/icons/icons";
 import { Button } from "@/components/ui/button";
-import OpenModalBatton from "@/components/active-components/open-modal-batton";
-import Link from "next/link";
 
 const HeroBeers = () => {
   return (
