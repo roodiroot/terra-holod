@@ -13,7 +13,13 @@ const BoodyFooter = () => {
         <div className="flex flex-col gap-y-2 text-base">
           <h4 className="font-semibold">Меню</h4>
           {menu.pages.map((i) => (
-            <Link key={i.href} href={i.href}>
+            <Link className="text-sm" key={i.href} href={i.href}>
+              {i.page}
+            </Link>
+          ))}
+          <h4 className="font-semibold mt-2">Покупателю</h4>
+          {menu.documents.map((i) => (
+            <Link className="text-sm" key={i.href} href={i.href}>
               {i.page}
             </Link>
           ))}
@@ -25,7 +31,7 @@ const BoodyFooter = () => {
           ))}
         </div>
       </div>
-      <p className="mt-[30px] text-lg  text-balance max-w-md">
+      <p className="mt-[30px] text-lg  text-balance max-w-md text-[--accent] font-bold">
         Производим и монтируем оборудование под Ваши потребности.
       </p>
       <div className="h-[1px] bg-gray-200 mt-8 md:mt-14 mb-4"></div>

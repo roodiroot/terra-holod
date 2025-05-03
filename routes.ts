@@ -10,11 +10,15 @@ export const menu = {
     },
   ],
   pages: [
-    // { page: "Главная", href: "/" },
-    // { page: "Каталог", href: "/catalog" },
-
     { page: "Решения", href: "/projects" },
     { page: "О нас", href: "/about" },
     { page: "Контакты", href: "/contacts" },
+  ],
+  documents: [
+    { page: "Политика конфиденциальности", href: "/docs/polityc" },
+    {
+      page: "Согласие на обработку персональных данных",
+      href: "/docs/pd-consent",
+    },
   ],
 };
