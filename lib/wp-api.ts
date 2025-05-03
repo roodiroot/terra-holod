@@ -1,6 +1,5 @@
+import { fetchAPI } from "@/data/fetch-api";
 import { filterProductsByName } from "./utils";
-
-const API_URL = process.env.WORDPRESS_API_URL || "";
 
 export interface Post {
   date: string; // Ожидаем, что дата будет в формате строки
@@ -37,27 +36,6 @@ export interface Products {
   };
   title: string;
   slug: string;
-}
-
-async function fetchAPI(query = "", { variables }: Record<string, any> = {}) {
-  const headers = { "Content-Type": "application/json" };
-
-  const res = await fetch(API_URL, {
-    headers,
-    cache: "no-store",
-    method: "POST",
-    body: JSON.stringify({
-      query,
-      variables,
-    }),
-  });
-
-  const json = await res.json();
-  if (json.errors) {
-    console.error(json.errors);
-    throw new Error("Failed to fetch API");
-  }
-  return json.data;
 }
 
 //Получаем все посты
@@ -199,42 +177,3 @@ export async function getProductBySlug(slug: string): Promise<Products> {
 
   return response.products.nodes[0];
 }
-
-//Получаем все посты
-// export async function getAllPosts(): Promise<
-//   {
-//     slug: string;
-//     title: string;
-//     featuredImage: { node: { sourceUrl: string } };
-//   }[]
-// > {
-//   const response = await fetchAPI(`
-//     query SinglePost {
-//       posts {
-//         nodes {
-//         slug
-//           title
-//           excerpt
-//           date
-//           featuredImage {
-//             node {
-//               sourceUrl
-//             }
-//           }
-//           projects {
-//             description
-//             fieldGroupName
-//             title
-//             img {
-//               node {
-//                 mediaItemUrl
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `);
-
-//   return response.posts.nodes;
-// }

@@ -27,8 +27,6 @@ const ProductPage = async ({ params }: Props) => {
   const slug = (await params).slug;
   const product = await getProductBySlug(slug);
 
-  console.log(product.productsFields.img?.node);
-
   return (
     <HeroContainer>
       <div className="md:grid md:grid-cols-2 md:items-start md:gap-x-8">
@@ -56,7 +54,11 @@ const ProductPage = async ({ params }: Props) => {
             <div className="mt-3">
               <h2 className="sr-only">Информация о товаре</h2>
               <p className="text-3xl tracking-tight text-gray-900">
-                {product.productsFields.price} ₽
+                {product.productsFields.price
+                  ? new Intl.NumberFormat("ru").format(
+                      product.productsFields.price
+                    ) + " ₽"
+                  : "По запросу"}
               </p>
             </div>
             <div className="mt-3">

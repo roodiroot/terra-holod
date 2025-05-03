@@ -20,6 +20,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { sendMessageFedback } from "@/actions/sender";
 import { toast } from "sonner";
+import { Switch } from "@/components/ui/switch";
 
 interface ContactsFormProps extends React.HTMLAttributes<HTMLFormElement> {}
 
@@ -30,6 +31,7 @@ const ContactsForm: React.FC<ContactsFormProps> = ({ className, ...props }) => {
       name: "",
       email: "",
       message: "",
+      policy: false,
     },
   });
 
@@ -104,7 +106,38 @@ const ContactsForm: React.FC<ContactsFormProps> = ({ className, ...props }) => {
           )}
         />
 
-        <Button className="w-full">Отправить</Button>
+        <FormField
+          control={form.control}
+          name="policy"
+          render={({ field }) => (
+            <FormItem className="flex items-center">
+              <FormControl>
+                <Switch
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
+              </FormControl>
+              <div
+                className={cn(
+                  "ml-4 text-sm",
+                  form.formState.errors.policy && "text-red-600 font-bold"
+                )}
+              >
+                Я ознакомлен(а) с{" "}
+                <a
+                  className="text-[--accent] font-bold"
+                  target="_blank"
+                  href="/docs/pd-consent"
+                >
+                  политикой персональных данных
+                </a>
+                .
+              </div>
+            </FormItem>
+          )}
+        />
+
+        <Button className="w-full">Отправить.</Button>
       </form>
     </Form>
   );

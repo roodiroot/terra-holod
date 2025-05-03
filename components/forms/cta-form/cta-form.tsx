@@ -8,10 +8,11 @@ import { cn } from "@/lib/utils";
 import { formPromptSchema } from "@/schemas";
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons/icons";
-import { Form, FormControl } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import InputPhoneMask from "@/components/ui/input-phone-mask";
 import { sendMessagePopup } from "@/actions/sender";
 import { toast } from "sonner";
+import { Switch } from "@/components/ui/switch";
 
 interface CtaFormProps extends React.HTMLAttributes<HTMLFormElement> {}
 
@@ -20,6 +21,7 @@ const CtaForm: React.FC<CtaFormProps> = ({ className, ...props }) => {
     resolver: zodResolver(formPromptSchema),
     defaultValues: {
       phone: "",
+      policy: false,
     },
   });
 
@@ -68,7 +70,40 @@ const CtaForm: React.FC<CtaFormProps> = ({ className, ...props }) => {
               )}
             />
           </div>
+
           <Button>Отправить</Button>
+        </div>
+        <div className="w-full">
+          <FormField
+            control={form.control}
+            name="policy"
+            render={({ field }) => (
+              <FormItem className="flex items-center">
+                <FormControl>
+                  <Switch
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                  />
+                </FormControl>
+                <div
+                  className={cn(
+                    "ml-4 text-sm",
+                    form.formState.errors.policy && "text-red-600 font-bold"
+                  )}
+                >
+                  Я ознакомлен(а) с{" "}
+                  <a
+                    className="text-[--accent] font-bold"
+                    target="_blank"
+                    href="/docs/pd-consent"
+                  >
+                    политикой персональных данных
+                  </a>
+                  .
+                </div>
+              </FormItem>
+            )}
+          />
         </div>
         {form.formState.errors?.phone && (
           <div className="absolute top-full left-0 text-[0.8rem] font-medium text-red-500 dark:text-red-900">

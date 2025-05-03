@@ -21,6 +21,7 @@ import { Button } from "@/components/ui/button";
 import InputPhoneMask from "@/components/ui/input-phone-mask";
 import { sendMessagePopup } from "@/actions/sender";
 import useModal from "@/hooks/use-modal";
+import { Switch } from "../ui/switch";
 
 function ProfileForm({ className }: React.ComponentProps<"form">) {
   const { onClose } = useModal();
@@ -29,6 +30,7 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
     defaultValues: {
       phone: "",
       name: "",
+      policy: false,
     },
   });
 
@@ -86,6 +88,36 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
               </FormControl>
               <FormDescription />
               <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="policy"
+          render={({ field }) => (
+            <FormItem className="flex items-center">
+              <FormControl>
+                <Switch
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
+              </FormControl>
+              <div
+                className={cn(
+                  "ml-4 text-sm",
+                  form.formState.errors.policy && "text-red-600 font-bold"
+                )}
+              >
+                Я ознакомлен(а) с{" "}
+                <a
+                  className="text-[--accent] font-bold"
+                  target="_blank"
+                  href="/docs/pd-consent"
+                >
+                  политикой персональных данных
+                </a>
+                .
+              </div>
             </FormItem>
           )}
         />
