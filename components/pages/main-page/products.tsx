@@ -22,6 +22,7 @@ const ProductsForMainPage = async () => {
                 slug={i.slug}
                 title={i.title}
                 cooling_capacity={i?.productsFields?.cooling_capacity}
+                volumeOfRefrigerator={i?.productsFields?.volumeOfRefrigerator}
                 voltage={i.productsFields.voltage}
                 img={i.productsFields.img?.node?.link}
                 operatingRange={i.productsFields?.operatingRange}
