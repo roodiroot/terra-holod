@@ -22,9 +22,11 @@ import InputPhoneMask from "@/components/ui/input-phone-mask";
 import { sendMessagePopup } from "@/actions/sender";
 import useModal from "@/hooks/use-modal";
 import { Switch } from "../ui/switch";
+import { useState } from "react";
 
 function ProfileForm({ className }: React.ComponentProps<"form">) {
   const { onClose } = useModal();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const form = useForm<z.infer<typeof formProfileSchema>>({
     resolver: zodResolver(formProfileSchema),
     defaultValues: {
@@ -35,6 +37,8 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
   });
 
   async function onSubmit(values: z.infer<typeof formProfileSchema>) {
+    setIsSubmitting(true);
+    const timeout = setTimeout(() => setIsSubmitting(false), 15000);
     await sendMessagePopup(values)
       .then((d) => {
         if (d.succsess) {
@@ -45,6 +49,8 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
       })
       .finally(() => {
         form.reset();
+        clearTimeout(timeout);
+        setIsSubmitting(false);
       });
   }
   return (
@@ -121,7 +127,9 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
             </FormItem>
           )}
         />
-        <Button type="submit">Отправить</Button>
+        <Button disabled={isSubmitting} type="submit">
+          Отправить
+        </Button>
       </form>
     </Form>
   );

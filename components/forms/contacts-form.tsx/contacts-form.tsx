@@ -1,6 +1,6 @@
 "use client";
 
-import { z } from "zod";
+import { set, z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
@@ -21,10 +21,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { sendMessageFedback } from "@/actions/sender";
 import { toast } from "sonner";
 import { Switch } from "@/components/ui/switch";
+import { useState } from "react";
 
 interface ContactsFormProps extends React.HTMLAttributes<HTMLFormElement> {}
 
 const ContactsForm: React.FC<ContactsFormProps> = ({ className, ...props }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const form = useForm<z.infer<typeof formContactsSchema>>({
     resolver: zodResolver(formContactsSchema),
     defaultValues: {
@@ -36,6 +39,8 @@ const ContactsForm: React.FC<ContactsFormProps> = ({ className, ...props }) => {
   });
 
   async function onSubmit(values: z.infer<typeof formContactsSchema>) {
+    setIsSubmitting(true);
+    const timeout = setTimeout(() => setIsSubmitting(false), 15000);
     await sendMessageFedback(values)
       .then((d) => {
         if (d.succsess) {
@@ -46,6 +51,8 @@ const ContactsForm: React.FC<ContactsFormProps> = ({ className, ...props }) => {
       })
       .finally(() => {
         form.reset();
+        clearTimeout(timeout);
+        setIsSubmitting(false);
       });
   }
 
@@ -137,7 +144,9 @@ const ContactsForm: React.FC<ContactsFormProps> = ({ className, ...props }) => {
           )}
         />
 
-        <Button className="w-full">Отправить.</Button>
+        <Button disabled={isSubmitting} className="w-full">
+          Отправить.
+        </Button>
       </form>
     </Form>
   );

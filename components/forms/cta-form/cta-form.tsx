@@ -13,10 +13,13 @@ import InputPhoneMask from "@/components/ui/input-phone-mask";
 import { sendMessagePopup } from "@/actions/sender";
 import { toast } from "sonner";
 import { Switch } from "@/components/ui/switch";
+import { useState } from "react";
 
 interface CtaFormProps extends React.HTMLAttributes<HTMLFormElement> {}
 
 const CtaForm: React.FC<CtaFormProps> = ({ className, ...props }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const form = useForm<z.infer<typeof formPromptSchema>>({
     resolver: zodResolver(formPromptSchema),
     defaultValues: {
@@ -26,6 +29,9 @@ const CtaForm: React.FC<CtaFormProps> = ({ className, ...props }) => {
   });
 
   async function onSubmit(values: z.infer<typeof formPromptSchema>) {
+    setIsSubmitting(true);
+    const timeout = setTimeout(() => setIsSubmitting(false), 15000);
+
     await sendMessagePopup({ ...values, name: "CTA" })
       .then((d) => {
         if (d.succsess) {
@@ -36,6 +42,8 @@ const CtaForm: React.FC<CtaFormProps> = ({ className, ...props }) => {
       })
       .finally(() => {
         form.reset();
+        clearTimeout(timeout);
+        setIsSubmitting(false);
       });
   }
 
@@ -71,7 +79,7 @@ const CtaForm: React.FC<CtaFormProps> = ({ className, ...props }) => {
             />
           </div>
 
-          <Button>Отправить</Button>
+          <Button disabled={isSubmitting}>Отправить</Button>
         </div>
         <div className="w-full">
           <FormField
