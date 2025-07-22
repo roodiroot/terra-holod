@@ -33,6 +33,11 @@ export interface Products {
         link: string;
       };
     };
+    docfile: {
+      node: {
+        link: string;
+      };
+    };
   };
   title: string;
   slug: string;
@@ -166,6 +171,11 @@ export async function getProductBySlug(slug: string): Promise<Products> {
                 link
               }
             }
+            docfile {
+                node {
+                  link
+                }
+              }  
           }
           title
           slug

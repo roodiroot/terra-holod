@@ -3,12 +3,17 @@ import { getAllProducts } from "@/lib/wp-api";
 import CardItem from "../general/card-item";
 import SectionContainer from "@/components/section-container";
 import ClassicTitleModule from "../general/classic-title-module";
+import { getAllDocumentByTitle } from "@/data/wp-api/documents-api";
+import { DownloadIcon } from "lucide-react";
 
 const ProductsForMainPage = async () => {
   const flowers = await getAllProducts({
     application: "Для цветочного магазина",
     limit: 4,
   });
+  const doc = await getAllDocumentByTitle(
+    "Сплит-системы Terraholod от июля 25 г."
+  );
 
   return (
     <SectionContainer className="bg-[#ECEDEB]">
@@ -31,6 +36,20 @@ const ProductsForMainPage = async () => {
               />
             ))}
           </ul>
+        </div>
+        <div className="mt-6">
+          {doc.docsContent.file?.node?.link && (
+            <a
+              target="_blank"
+              className="font-bold text-[--accent] text-base flex gap-3 items-center"
+              href={doc.docsContent.file?.node?.link}
+            >
+              <span>
+                <DownloadIcon />
+              </span>
+              Скачать прайс-лист
+            </a>
+          )}
         </div>
       </div>
     </SectionContainer>

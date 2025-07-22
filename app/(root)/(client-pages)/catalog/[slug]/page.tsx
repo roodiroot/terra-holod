@@ -4,6 +4,7 @@ import { getProductBySlug } from "@/lib/wp-api";
 import HeroContainer from "@/components/pages/hero-container";
 import { Icons } from "@/components/icons/icons";
 import Image from "next/image";
+import { DownloadIcon } from "lucide-react";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -136,6 +137,18 @@ const ProductPage = async ({ params }: Props) => {
               </div>
             </section>
           </>
+        </div>
+        <div className="mt-6">
+          <a
+            className="font-bold text-[--accent] text-base flex gap-3 items-center"
+            href={product.productsFields.docfile.node.link}
+            target="_blank"
+          >
+            <span>
+              <DownloadIcon />
+            </span>
+            Руководство по эксплуатации оборудования{" "}
+          </a>
         </div>
       </div>
     </HeroContainer>
