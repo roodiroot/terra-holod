@@ -20,5 +20,9 @@ export const menu = {
       page: "Согласие на обработку персональных данных",
       href: "/docs/pd-consent",
     },
+    {
+      page: "Оферта",
+      href: "/docs/oferta",
+    },
   ],
 };

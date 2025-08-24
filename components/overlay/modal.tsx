@@ -34,27 +34,4 @@ const Modal = () => {
   );
 };
 
-//   return (
-//     <Drawer open={isOpen} onOpenChange={onClose}>
-//       <DrawerContent className="rounded-t-[40px]">
-//         <DrawerHeader className="text-left">
-//           <DrawerTitle className="text-2xl">
-//             Добро пожаловать в TERRA-HOLOD
-//           </DrawerTitle>
-//           <DrawerDescription>
-//             Оставьте свои контактные данные, и наш специалист свяжется с вами,
-//             чтобы ответить на все вопросы и помочь найти лучшее решение для вас.
-//           </DrawerDescription>
-//         </DrawerHeader>
-//         <ProfileForm className="px-4" />
-//         <DrawerFooter className="pt-2">
-//           <DrawerClose asChild>
-//             <Button variant="outline">Отменить</Button>
-//           </DrawerClose>
-//         </DrawerFooter>
-//       </DrawerContent>
-//     </Drawer>
-//   );
-// };
-
 export default Modal;
