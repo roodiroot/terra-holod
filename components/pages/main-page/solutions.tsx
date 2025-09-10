@@ -114,7 +114,7 @@ const SolutionsForMainPage = async () => {
                 <ProjectItem
                   key={i.title}
                   title={i.title}
-                  imgUrl={i.featuredImage.node.sourceUrl}
+                  imgUrl={i.featuredImage?.node?.sourceUrl}
                   excerpt={i.excerpt}
                   slug={i.slug}
                   date={formattedDate}

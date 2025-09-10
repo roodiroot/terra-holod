@@ -49,7 +49,7 @@ export async function getAllPostsWithSlug(limit?: number): Promise<Post[]> {
     query getAllPostsWithSlug {
       posts(first: ${
         limit || 100
-      }, where: {orderby: {field: DATE, order: ASC}}) {
+      }, where: {orderby: {field: DATE, order: DESC}}) {
         nodes {
           slug
           title
