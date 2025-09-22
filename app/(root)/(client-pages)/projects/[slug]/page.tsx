@@ -10,15 +10,28 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  // read route params
   const slug = (await params).slug;
-
-  // fetch data
   const post = await getPostBySlug(slug);
 
   return {
-    title: "Выполненные проекты",
-    description: post?.title || "",
+    title: post.title,
+    description: `Читайте статью "${post.title}" в блоге компании "Терра-Холод".`,
+    openGraph: {
+      title: post.title,
+      description: `Читайте статью "${post.title}" в блоге компании "Терра-Холод".`,
+      url: `${process.env.NEXT_PUBLIC_URL}/blog/${post.slug}`,
+      images: [
+        {
+          url: post.featuredImage
+            ? post.featuredImage.node.sourceUrl
+            : `${process.env.NEXT_PUBLIC_URL}/main.jpg`,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+          type: "image/jpeg",
+        },
+      ],
+    },
   };
 }
 

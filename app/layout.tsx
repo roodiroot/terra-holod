@@ -11,8 +11,8 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://terraholod.ru"),
   title: {
-    template: "%s | Холодильное оборудование для бизнеса",
-    default: "Терра-Холод — Холодильное оборудование для бизнеса",
+    template: "%s | Терра-Холод",
+    default: "Холодильное оборудование для бизнеса",
   },
   description:
     "Терра-холод предлагает эффективные решения для охлаждения. Надежное холодильное оборудование от производителя.",
