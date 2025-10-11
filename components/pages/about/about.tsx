@@ -6,7 +6,7 @@ const benifits = [
     description: "лет создаем холод",
   },
   {
-    title: "1500",
+    title: "350",
     description: "холодильников установлено",
   },
   {
@@ -14,7 +14,7 @@ const benifits = [
     description: "месяцев гарантии",
   },
   {
-    title: "70",
+    title: "100",
     description: "довольных клиентов",
   },
 ];
