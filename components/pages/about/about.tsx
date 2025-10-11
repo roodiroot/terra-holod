@@ -14,7 +14,7 @@ const benifits = [
     description: "месяцев гарантии",
   },
   {
-    title: "100",
+    title: "110",
     description: "довольных клиентов",
   },
 ];
