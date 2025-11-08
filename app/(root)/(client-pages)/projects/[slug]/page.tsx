@@ -15,10 +15,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: post.title,
-    description: `Читайте статью "${post.title}" в блоге компании "Терра-Холод".`,
+    description:
+      "Холодильное оборудование для бизнеса от Терра-Холод. Работаем по всей России. Производство поставка и обслуживание.",
     openGraph: {
       title: post.title,
-      description: `Читайте статью "${post.title}" в блоге компании "Терра-Холод".`,
+      description:
+        "Холодильное оборудование для бизнеса от Терра-Холод. Работаем по всей России. Производство поставка и обслуживание.",
       url: `${process.env.NEXT_PUBLIC_URL}/blog/${post.slug}`,
       images: [
         {
