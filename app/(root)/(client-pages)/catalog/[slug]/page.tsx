@@ -103,7 +103,7 @@ const ProductPage = async ({ params }: Props) => {
                   </li>
                   <li className="relative pl-1.5  my-2  pr-6 w-full flex gap-4 justify-between sm:pl-6 sm:before:top-1/2 sm:before:-translate-y-1/2 sm:before:absolute sm:before:left-2 sm:before:w-1 sm:before:h-1 sm:before:bg-slate-200">
                     <span className="flex-1 leading-4 text-balance">
-                      Энергопотребление:
+                      Хладопроизводительность:
                     </span>
                     <span className="text-gray-900 font-bold text-right leading-4">
                       {product.productsFields.cooling_capacity}
