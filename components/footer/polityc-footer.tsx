@@ -4,7 +4,7 @@ const PoliticFooter = () => {
   return (
     <div className="text-sm text-center">
       <Link href={"/docs/polityc"}>Политика конфиденциальности</Link> ООО
-      “ТЕРРА” 2024 - 2025
+      “ТЕРРА” 2024 - {new Date().getFullYear()}
     </div>
   );
 };
