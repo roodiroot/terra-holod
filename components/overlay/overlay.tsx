@@ -7,7 +7,7 @@ const Overlay = () => {
   return (
     <>
       <Modal />
-      <FeedbackModalAutoOpener delay={10_000} />
+      <FeedbackModalAutoOpener />
       <CallWidget />
       <CookieBanner />
     </>
