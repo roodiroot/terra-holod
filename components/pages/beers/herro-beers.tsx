@@ -23,7 +23,7 @@ const HeroBeers = () => {
           <Icons.lt className="absolute right-[100%] bottom-[-2px] -rotate-90" />
           <OpenModalBatton>
             <Button className="font-bold hidden lg:inline-block ">
-              Консультация
+              Подбор оборудования
             </Button>
           </OpenModalBatton>
         </div>
@@ -37,10 +37,10 @@ const HeroBeers = () => {
             </Button>
           </div>
           <div className="absolute z-10 bottom-[-2px] right-[-2px] hidden sm:block lg:hidden">
-            <Icons.figure2 className="" />
+            <Icons.figure2 />
             <OpenModalBatton>
               <Button className="absolute bottom-0 right-0 font-semibold">
-                Консультация
+                Подбор техники
               </Button>
             </OpenModalBatton>
           </div>

@@ -18,7 +18,7 @@ const HeroFlowers = () => {
             </p>
             <div className="relative z-20 mt-8 md:mt-24">
               <OpenModalBatton>
-                <Button>Консультация</Button>
+                <Button>Подбор оборудования</Button>
               </OpenModalBatton>
             </div>
           </div>

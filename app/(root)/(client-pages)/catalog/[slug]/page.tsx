@@ -5,6 +5,8 @@ import HeroContainer from "@/components/pages/hero-container";
 import { Icons } from "@/components/icons/icons";
 import Image from "next/image";
 import { DownloadIcon } from "lucide-react";
+import OpenModalBatton from "@/components/active-components/open-modal-batton";
+import { Button } from "@/components/ui/button";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -78,6 +80,20 @@ const ProductPage = async ({ params }: Props) => {
               <h3 className="sr-only">Описание</h3>
               <p className="text-lg">{product.productsFields?.description}</p>
             </div>
+
+            <div className="mt-6 flex flex-col items-start gap-x-4 gap-y-2  sm:flex-row">
+              <OpenModalBatton>
+                <Button className="order-2 sm:order-1">
+                  Подобрать технику
+                </Button>
+              </OpenModalBatton>
+              <OpenModalBatton variant="outline">
+                <Button className="order-1 sm:order-2" variant="outline">
+                  Консультация
+                </Button>
+              </OpenModalBatton>
+            </div>
+
             <section className="mt-12">
               <h2 className="sr-only">Подробное описание</h2>
               <div className="w-full border-t bordder-gray-200">

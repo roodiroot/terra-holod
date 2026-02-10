@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import ActionButton from "./action-button";
 import TitleCardItem from "./title-card-item";
+import Link from "next/link";
 
 interface CardItemProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -128,8 +129,8 @@ const CardItem: React.FC<CardItemProps> = ({
             )}
           </ul>
           <div className="mt-4 flex justify-between gap-4 items-end">
-            <Button size="sm">
-              <ActionButton>Консультация</ActionButton>{" "}
+            <Button asChild size="sm">
+              <Link href={`/catalog/${slug}`}>Подробнее</Link>
             </Button>
             <span className=" whitespace-nowrap">
               {price ? (

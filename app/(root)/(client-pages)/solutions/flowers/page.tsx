@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default async function AboutPage() {
   return (
-    <div className="">
+    <div>
       <HeroFlowers />
       <AboutSection />
       <CTA className="bg-[#ECEDEB]" />

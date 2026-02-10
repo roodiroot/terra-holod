@@ -18,11 +18,13 @@ const Hero = () => {
             <div className="space-y-4">
               <div className="flex flex-col items-start gap-x-4 gap-y-2  sm:flex-row">
                 <OpenModalBatton>
-                  <Button className="order-2 sm:order-1">Консультация</Button>
+                  <Button className="order-2 sm:order-1">
+                    Подобрать технику
+                  </Button>
                 </OpenModalBatton>
                 <OpenModalBatton variant="outline">
                   <Button className="order-1 sm:order-2" variant="outline">
-                    Связаться
+                    Консультация
                   </Button>
                 </OpenModalBatton>
               </div>
