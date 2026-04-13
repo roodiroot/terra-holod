@@ -8,7 +8,7 @@ import { DownloadIcon } from "lucide-react";
 
 const ProductsForMainPage = async () => {
   const flowers = await getAllProducts({
-    application: "Для цветочного магазина",
+    application: "Общие",
     limit: 4,
   });
   const doc = await getAllDocumentByTitle(
@@ -29,7 +29,7 @@ const ProductsForMainPage = async () => {
                 cooling_capacity={i?.productsFields?.cooling_capacity}
                 volumeOfRefrigerator={i?.productsFields?.volumeOfRefrigerator}
                 voltage={i.productsFields.voltage}
-                img={i.productsFields.img?.node?.link}
+                img={i.productsFields.img?.node?.sourceUrl}
                 operatingRange={i.productsFields?.operatingRange}
                 consumption={i.productsFields.consumption}
                 price={i.productsFields.price}

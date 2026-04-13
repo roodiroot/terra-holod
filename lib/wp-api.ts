@@ -30,7 +30,7 @@ export interface Products {
     voltage?: string;
     img: {
       node: {
-        link: string;
+        sourceUrl: string;
       };
     };
     docfile: {
@@ -60,7 +60,7 @@ export async function getAllPostsWithSlug(limit?: number): Promise<Post[]> {
               sourceUrl
             }
           }
-          
+
         }
       }
     }
@@ -94,7 +94,7 @@ export async function getAllProducts({
             voltage
             img {
               node {
-                link
+                sourceUrl
               }
             }
           }
@@ -175,7 +175,7 @@ export async function getProductBySlug(slug: string): Promise<Products> {
                 node {
                   link
                 }
-              }  
+              }
           }
           title
           slug

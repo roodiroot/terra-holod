@@ -39,17 +39,6 @@ const AboutSection = () => {
           </div>
         </div>
         <ProductFlowers />
-        {/* <div className="h-[1px] bg-gray-200 my-12"></div>
-        <div className="flex flex-col md:flex-row md:justify-between gap-y-10">
-          {benifits.map((i) => (
-            <div key={i.title} className="text-center">
-              <p className="text-[113px] leading-[113px] font-bold text-[--accent]">
-                {i.title}
-              </p>
-              <p className="text-[26px] font-bold">{i.description}</p>
-            </div>
-          ))}
-        </div> */}
       </div>
     </SectionContainer>
   );

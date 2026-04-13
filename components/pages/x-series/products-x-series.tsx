@@ -1,11 +1,12 @@
 import { getAllProducts } from "@/lib/wp-api";
-import CardItem from "./card-item";
+
 import { getAllDocumentByTitle } from "@/data/wp-api/documents-api";
 import { DownloadIcon } from "lucide-react";
+import CardItem from "./card-item";
 
-const ProductBeers = async () => {
+const ProductXSeries = async () => {
   const products = await getAllProducts({
-    application: "Общие",
+    application: "X-series",
   });
   const doc = await getAllDocumentByTitle(
     "Сплит-системы Terraholod от июля 25 г."
@@ -20,7 +21,7 @@ const ProductBeers = async () => {
             slug={i.slug}
             cooling_capacity={i?.productsFields?.cooling_capacity}
             voltage={i.productsFields.voltage}
-            img={i.productsFields.img?.node?.sourceUrl}
+            img={i.productsFields?.img?.node?.sourceUrl}
             volumeOfRefrigerator={i.productsFields?.volumeOfRefrigerator}
             operatingRange={i.productsFields?.operatingRange}
             title={i.title}
@@ -48,4 +49,4 @@ const ProductBeers = async () => {
   );
 };
 
-export default ProductBeers;
+export default ProductXSeries;
