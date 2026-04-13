@@ -38,7 +38,7 @@ const ProductPage = async ({ params }: Props) => {
           <div className="relative w-full pb-[100%] rounded-[40px] bg-gray-100">
             <div className="absolute z-0 inset-0 p-10">
               <Image
-                src={product.productsFields.img?.node?.link}
+                src={product.productsFields.img?.node?.sourceUrl}
                 alt={`${product.title}_complect`}
                 width={1000}
                 height={1000}
@@ -59,8 +59,8 @@ const ProductPage = async ({ params }: Props) => {
               <p className="text-3xl tracking-tight text-gray-900">
                 {product.productsFields.price
                   ? new Intl.NumberFormat("ru").format(
-                      product.productsFields.price
-                    ) + " ₽"
+                    product.productsFields.price
+                  ) + " ₽"
                   : "По запросу"}
               </p>
             </div>
