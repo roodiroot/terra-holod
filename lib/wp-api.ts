@@ -168,7 +168,7 @@ export async function getProductBySlug(slug: string): Promise<Products> {
             voltage
             img {
               node {
-                link
+                sourceUrl
               }
             }
             docfile {

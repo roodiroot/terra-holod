@@ -30,6 +30,8 @@ const ProductPage = async ({ params }: Props) => {
   const slug = (await params).slug;
   const product = await getProductBySlug(slug);
 
+  console.log(product.productsFields.img?.node?.sourceUrl)
+
   return (
     <HeroContainer>
       <div className="md:grid md:grid-cols-2 md:items-start md:gap-x-8">
