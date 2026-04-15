@@ -30,15 +30,13 @@ const ProductPage = async ({ params }: Props) => {
   const slug = (await params).slug;
   const product = await getProductBySlug(slug);
 
-  console.log(product.productsFields.img?.node?.sourceUrl)
-
   return (
     <HeroContainer>
       <div className="md:grid md:grid-cols-2 md:items-start md:gap-x-8">
         {/* Image slider */}
         <div className="flex flex-col-reverse">
-          <div className="relative w-full pb-[100%] rounded-[40px] bg-gray-100">
-            <div className="absolute z-0 inset-0 p-10">
+          <div className="relative w-full pb-[100%] rounded-[40px] overflow-hidden bg-gray-100">
+            <div className="absolute z-0 inset-0">
               <Image
                 src={product.productsFields.img?.node?.sourceUrl}
                 alt={`${product.title}_complect`}

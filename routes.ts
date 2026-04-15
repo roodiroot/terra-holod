@@ -10,7 +10,7 @@ export const menu = {
     },
   ],
   pages: [
-    // { page: "X-series", href: "/solutions/x-series"},
+    { page: "X-series", href: "/solutions/x-series"},
     { page: "Решения", href: "/projects" },
     { page: "О нас", href: "/about" },
     { page: "Контакты", href: "/contacts" },

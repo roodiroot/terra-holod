@@ -29,7 +29,7 @@ const CardItem: React.FC<CardItemProps> = ({
   voltage,
   price,
 }) => {
-  console.log("IMAGE", img)
+
   return (
     <div className="w-full rounded-[40px] overflow-hidden bg-[#F7F6F9] shadow-md">
       <div className="relative w-full aspect-square">
@@ -37,17 +37,17 @@ const CardItem: React.FC<CardItemProps> = ({
           {img && <Image fill src={img} alt="mini-product" />}
         </div>
       </div>
-      <div className="relative z-10 px-5 py-4">
-        <div className="">
+      <div className="relative z-10 px-5 py-4 flex justify-center">
+        <div>
           {application ? (
             <p className="text-xs uppercase text-[--accent] font-semibold  line-clamp-2 text-balance">
-              X-Series
+              X-Series (универсальные)
             </p>
           ) : (
             ""
           )}
           <TitleCardItem title={title} slug={slug} />
-          <ul className="text-sm mt-2 max-w-[240px]">
+          <ul className="text-sm mt-2">
             {cooling_capacity ? (
               <li className="w-full flex justify-between">
                 <p className="line-clamp-1">Холодопроизводительность</p>
