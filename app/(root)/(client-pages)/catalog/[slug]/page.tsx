@@ -157,7 +157,7 @@ const ProductPage = async ({ params }: Props) => {
         <div className="mt-6">
           <a
             className="font-bold text-[--accent] text-base flex gap-3 items-center"
-            href={product.productsFields.docfile.node.link}
+            href={product.productsFields.docfile?.node?.link}
             target="_blank"
           >
             <span>
