@@ -25,6 +25,9 @@ export interface Products {
     description?: string;
     operatingRange: string;
     volumeOfRefrigerator: string;
+    volume1: string;
+    volume2: string;
+    volume3: string;
     consumption: string;
     price: number | null;
     voltage?: string;
@@ -90,6 +93,9 @@ export async function getAllProducts({
             cooling_capacity
             operatingRange
             volumeOfRefrigerator
+            volume1
+            volume2
+            volume3
             consumption
             voltage
             img {
@@ -164,6 +170,9 @@ export async function getProductBySlug(slug: string): Promise<Products> {
             cooling_capacity
             operatingRange
             volumeOfRefrigerator
+            volume1
+            volume2
+            volume3
             consumption
             voltage
             img {

@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import TitleCardItem from "../general/title-card-item";
 
 interface CardItemProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -15,12 +15,12 @@ interface CardItemProps extends React.HTMLAttributes<HTMLDivElement> {
   voltage?: string;
   consumption?: string;
   price?: number | null;
+  volums?: string[]
 }
 
 const CardItem: React.FC<CardItemProps> = ({
   title,
   slug,
-  volumeOfRefrigerator,
   consumption,
   operatingRange,
   img,
@@ -28,6 +28,7 @@ const CardItem: React.FC<CardItemProps> = ({
   cooling_capacity,
   voltage,
   price,
+  volums
 }) => {
 
   return (
@@ -47,7 +48,7 @@ const CardItem: React.FC<CardItemProps> = ({
             ""
           )}
           <TitleCardItem title={title} slug={slug} />
-          <ul className="text-sm mt-2">
+          <ul className="text-sm mt-2 space-y-1">
             {cooling_capacity ? (
               <li className="w-full flex justify-between">
                 <p className="line-clamp-1">Холодопроизводительность</p>
@@ -56,12 +57,14 @@ const CardItem: React.FC<CardItemProps> = ({
             ) : (
               ""
             )}
-            {volumeOfRefrigerator ? (
+            {volums && volums?.length > 0 ? (
               <li className="w-full flex justify-between">
-                <p className="">Объём камеры</p>
-                <p className="font-semibold  text-right">
-                  {volumeOfRefrigerator}
-                </p>
+                <p>Объём камеры:</p>
+                <div className="flex flex-col items-end">
+                  {volums.map(i => (
+                    <p key={i} className="font-semibold text-right">{i}</p>
+                  ))}
+                </div>
               </li>
             ) : (
               ""

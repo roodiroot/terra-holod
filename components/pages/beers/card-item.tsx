@@ -16,6 +16,7 @@ interface CardItemProps extends React.HTMLAttributes<HTMLDivElement> {
   voltage?: string;
   consumption?: string;
   price?: number | null;
+  volums?: string[]
 }
 
 const CardItem: React.FC<CardItemProps> = ({
@@ -29,6 +30,7 @@ const CardItem: React.FC<CardItemProps> = ({
   cooling_capacity,
   voltage,
   price,
+  volums
 }) => {
   return (
     <div className="w-full rounded-[40px] overflow-hidden bg-[#F7F6F9] shadow-md">
@@ -91,12 +93,14 @@ const CardItem: React.FC<CardItemProps> = ({
             ) : (
               ""
             )}
-            {volumeOfRefrigerator ? (
+            {volums && volums?.length > 0 ? (
               <li className="w-full flex justify-between">
-                <p className="">Объём камеры</p>
-                <p className="font-semibold  text-right">
-                  {volumeOfRefrigerator}
-                </p>
+                <p>Объём камеры:</p>
+                <div className="flex flex-col items-end">
+                  {volums.map(i => (
+                    <p key={i} className="font-semibold text-right">{i}</p>
+                  ))}
+                </div>
               </li>
             ) : (
               ""

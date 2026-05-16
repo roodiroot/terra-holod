@@ -27,6 +27,7 @@ const ProductBeers = async () => {
             application={i.productsFields.application.nodes[0].name}
             consumption={i.productsFields.consumption}
             price={i.productsFields.price}
+            volums={[i.productsFields.volume1, i.productsFields.volume2, i.productsFields.volume3]}
           />
         ))}
       </ul>
