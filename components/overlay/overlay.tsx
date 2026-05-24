@@ -8,7 +8,7 @@ const Overlay = () => {
     <>
       <Modal />
       <FeedbackModalAutoOpener />
-      <CallWidget />
+      {/* <CallWidget /> */}
       <CookieBanner />
     </>
   );
