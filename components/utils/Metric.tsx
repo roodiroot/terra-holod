@@ -30,7 +30,8 @@ export function MetrikYA() {
    });
       `}
       </Script>
-      <Script src="https://cdn.matryoshka-studio.ru/widget.js" strategy="afterInteractive" />
+      {/* <Script src="https://cdn.matryoshka-studio.ru/widget.js" strategy="afterInteractive" /> */}
+      <Script src="http://localhost:8082/widget.js" strategy="afterInteractive" />
     </>
   );
 }
