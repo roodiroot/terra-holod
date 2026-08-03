@@ -18,7 +18,7 @@ export default async function BeerShopPage() {
     <div className="">
       <HeroBeers />
       <BenifitsForBeerPage />
-      <CTA />
+      {/* <CTA /> */}
       <Partners />
       <FeaturesSection />
     </div>

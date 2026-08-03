@@ -15,7 +15,7 @@ export default function Home() {
       {/* <AboutForMainPage /> */}
       <SolutionsForMainPage />
       <ProductsForMainPage />
-      <CTA />
+      {/* <CTA /> */}
       <PartnersForMainPage />
       {/* <FeaturesForMainPage /> */}
       <TehnologyForMainPage />
