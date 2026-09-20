@@ -11,9 +11,7 @@ const ProductsForMainPage = async () => {
     application: "Общие",
     limit: 4,
   });
-  const doc = await getAllDocumentByTitle(
-    "Сплит-системы Terraholod от июля 25 г."
-  );
+  const doc = await getAllDocumentByTitle("Сплит-системы Terraholod от июля 25 г.");
 
   return (
     <SectionContainer className="bg-[#ECEDEB]">
@@ -37,7 +35,7 @@ const ProductsForMainPage = async () => {
             ))}
           </ul>
         </div>
-        <div className="mt-6">
+        {/* <div className="mt-6">
           {doc.docsContent.file?.node?.link && (
             <a
               target="_blank"
@@ -50,7 +48,7 @@ const ProductsForMainPage = async () => {
               Скачать прайс-лист
             </a>
           )}
-        </div>
+        </div> */}
       </div>
     </SectionContainer>
   );

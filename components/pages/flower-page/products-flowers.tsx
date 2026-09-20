@@ -8,9 +8,7 @@ const ProductFlowers = async () => {
   const products = await getAllProducts({
     application: "Общие",
   });
-  const doc = await getAllDocumentByTitle(
-    "Сплит-системы Terraholod от июля 25 г."
-  );
+  const doc = await getAllDocumentByTitle("Сплит-системы Terraholod от июля 25 г.");
 
   return (
     <>
@@ -32,7 +30,7 @@ const ProductFlowers = async () => {
           />
         ))}
       </ul>
-      <div className="mt-6">
+      {/* <div className="mt-6">
         {doc.docsContent.file?.node?.link && (
           <a
             target="_blank"
@@ -45,7 +43,7 @@ const ProductFlowers = async () => {
             Скачать прайс-лист
           </a>
         )}
-      </div>
+      </div> */}
     </>
   );
 };

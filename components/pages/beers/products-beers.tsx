@@ -7,9 +7,7 @@ const ProductBeers = async () => {
   const products = await getAllProducts({
     application: "Общие",
   });
-  const doc = await getAllDocumentByTitle(
-    "Сплит-системы Terraholod от июля 25 г."
-  );
+  const doc = await getAllDocumentByTitle("Сплит-системы Terraholod от июля 25 г.");
 
   return (
     <>
@@ -31,7 +29,7 @@ const ProductBeers = async () => {
           />
         ))}
       </ul>
-      <div className="mt-6">
+      {/* <div className="mt-6">
         {doc.docsContent.file?.node?.link && (
           <a
             target="_blank"
@@ -44,7 +42,7 @@ const ProductBeers = async () => {
             Скачать прайс-лист
           </a>
         )}
-      </div>
+      </div> */}
     </>
   );
 };
