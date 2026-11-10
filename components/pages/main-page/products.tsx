@@ -11,7 +11,7 @@ const ProductsForMainPage = async () => {
     application: "Общие",
     limit: 4,
   });
-  const doc = await getAllDocumentByTitle("Сплит-системы Terraholod от июля 25 г.");
+  // const doc = await getAllDocumentByTitle("Сплит-системы Terraholod от июля 25 г.");
 
   return (
     <SectionContainer className="bg-[#ECEDEB]">

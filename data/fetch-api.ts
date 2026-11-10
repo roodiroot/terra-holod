@@ -1,24 +1,20 @@
-const API_URL = process.env.WORDPRESS_API_URL || "";
+import { mockProducts } from "./mock-products";
+
+// WordPress API отключён: возвращаем только локальные данные.
 export async function fetchAPI(
   query = "",
-  { variables }: Record<string, any> = {}
-) {
-  const headers = { "Content-Type": "application/json" };
+  _options: Record<string, any> = {}
+): Promise<any> {
+  const slug = query.match(/where:\s*\{\s*name:\s*"([^"]+)"/)?.[1];
 
-  const res = await fetch(API_URL, {
-    headers,
-    cache: "no-store",
-    method: "POST",
-    body: JSON.stringify({
-      query,
-      variables,
-    }),
-  });
-
-  const json = await res.json();
-  if (json.errors) {
-    console.error(json.errors);
-    throw new Error("Failed to fetch API");
-  }
-  return json.data;
+  return {
+    products: {
+      nodes: slug
+        ? mockProducts.filter((product) => product.slug === slug)
+        : mockProducts,
+    },
+    posts: { nodes: [] },
+    post: null,
+    docs: { nodes: [] },
+  };
 }

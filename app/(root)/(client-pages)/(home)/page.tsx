@@ -1,4 +1,5 @@
 import Hero from "@/components/pages/main-page/hero";
+import ServiceNotice from "@/components/pages/main-page/service-notice";
 import BenifitsForMainPage from "@/components/pages/main-page/benifits";
 import PartnersForMainPage from "@/components/pages/main-page/partners";
 import TehnologyForMainPage from "@/components/pages/main-page/tehnology";
@@ -10,6 +11,7 @@ import CTA from "@/components/pages/flower-page/cta/cta";
 export default function Home() {
   return (
     <div className="">
+      <ServiceNotice />
       <Hero />
       <BenifitsForMainPage />
       {/* <AboutForMainPage /> */}

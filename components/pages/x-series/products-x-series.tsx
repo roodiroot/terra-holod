@@ -8,9 +8,9 @@ const ProductXSeries = async () => {
   const products = await getAllProducts({
     application: "X-series",
   });
-  const doc = await getAllDocumentByTitle(
-    "Сплит-системы Terraholod от июля 25 г."
-  );
+  // const doc = await getAllDocumentByTitle(
+  //   "Сплит-системы Terraholod от июля 25 г."
+  // );
 
   return (
     <>
@@ -32,7 +32,7 @@ const ProductXSeries = async () => {
           />
         ))}
       </ul>
-      <div className="mt-6">
+      {/* <div className="mt-6">
         {doc.docsContent.file?.node?.link && (
           <a
             target="_blank"
@@ -45,7 +45,7 @@ const ProductXSeries = async () => {
             Скачать прайс-лист
           </a>
         )}
-      </div>
+      </div> */}
     </>
   );
 };

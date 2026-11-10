@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
-import ActionButton from "./action-button";
+// import ActionButton from "./action-button";
 import TitleCardItem from "./title-card-item";
 import Link from "next/link";
 
@@ -55,16 +55,8 @@ const CardItem: React.FC<CardItemProps> = ({
               colorInterpolationFilters="sRGB"
             >
               <feFlood floodOpacity="0" result="BackgroundImageFix" />
-              <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="BackgroundImageFix"
-                result="shape"
-              />
-              <feGaussianBlur
-                stdDeviation="78.9"
-                result="effect1_foregroundBlur_675_97687"
-              />
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+              <feGaussianBlur stdDeviation="78.9" result="effect1_foregroundBlur_675_97687" />
             </filter>
           </defs>
         </svg>
@@ -94,9 +86,7 @@ const CardItem: React.FC<CardItemProps> = ({
             {volumeOfRefrigerator ? (
               <li className="w-full flex justify-between">
                 <p className="">Объём камеры</p>
-                <p className="font-semibold  text-right">
-                  {volumeOfRefrigerator}
-                </p>
+                <p className="font-semibold  text-right">{volumeOfRefrigerator}</p>
               </li>
             ) : (
               ""
