@@ -8,8 +8,8 @@ const HeroForPostPage = ({
   imgUrl,
   date,
 }: {
-  title: string;
-  imgUrl: string;
+  title?: string;
+  imgUrl?: string;
   date: string;
 }) => {
   // console.log(date);
@@ -26,11 +26,7 @@ const HeroForPostPage = ({
               <div className="space-y-4">
                 <div className="flex flex-col items-start gap-x-4 gap-y-2  sm:flex-row">
                   <Button className="order-2 sm:order-1">Консультация</Button>
-                  <Button
-                    asChild
-                    className="order-1 sm:order-2"
-                    variant="outline"
-                  >
+                  <Button asChild className="order-1 sm:order-2" variant="outline">
                     <Link href={"/projects"}>Смотреть все проекты</Link>
                   </Button>
                 </div>
@@ -45,11 +41,7 @@ const HeroForPostPage = ({
               <div className="space-y-4">
                 <div className="flex flex-col items-start gap-x-4 gap-y-2  sm:flex-row">
                   <Button className="order-2 sm:order-1">Консультация</Button>
-                  <Button
-                    asChild
-                    className="order-1 sm:order-2"
-                    variant="outline"
-                  >
+                  <Button asChild className="order-1 sm:order-2" variant="outline">
                     <Link href={"/projects"}>Смотреть все проекты</Link>
                   </Button>
                 </div>
