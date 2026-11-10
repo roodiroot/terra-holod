@@ -31,6 +31,8 @@ export interface Products {
     consumption: string;
     price: number | null;
     voltage?: string;
+    images?: string[];
+    previewImages?: string[];
     img: {
       node: {
         sourceUrl: string;
@@ -50,9 +52,7 @@ export interface Products {
 export async function getAllPostsWithSlug(limit?: number): Promise<Post[]> {
   const response = await fetchAPI(`
     query getAllPostsWithSlug {
-      posts(first: ${
-        limit || 100
-      }, where: {orderby: {field: DATE, order: DESC}}) {
+      posts(first: ${limit || 100}, where: {orderby: {field: DATE, order: DESC}}) {
         nodes {
           slug
           title
@@ -79,37 +79,7 @@ export async function getAllProducts({
   limit?: number;
   application?: string;
 }): Promise<Products[]> {
-  const response = await fetchAPI(`
-    query getAllPostsWithSlug {
-      products(first: 100, where: {orderby: {field: TITLE, order: ASC}}) {
-        nodes {
-          productsFields {
-            application {
-              nodes {
-                name
-              }
-            }
-            price
-            cooling_capacity
-            operatingRange
-            volumeOfRefrigerator
-            volume1
-            volume2
-            volume3
-            consumption
-            voltage
-            img {
-              node {
-                sourceUrl
-              }
-            }
-          }
-          title
-          slug
-        }
-      }
-    }
-  `);
+  const response = await fetchAPI();
 
   let data = response.products.nodes;
 
@@ -123,7 +93,7 @@ export async function getAllProducts({
   return data;
 }
 
-export async function getPostBySlug(slug: string): Promise<Post> {
+export async function getPostBySlug(slug: string): Promise<Post | null> {
   const decodedStr = decodeURIComponent(slug);
   const response = await fetchAPI(
     `
@@ -146,7 +116,7 @@ export async function getPostBySlug(slug: string): Promise<Post> {
         id: decodedStr,
         idType: "SLUG",
       },
-    }
+    },
   );
 
   return response.post;
@@ -191,7 +161,7 @@ export async function getProductBySlug(slug: string): Promise<Products> {
         }
       }
     }
-    `
+    `,
   );
 
   return response.products.nodes[0];

@@ -15,7 +15,7 @@ const ProductsPage = async () => {
     <HeroContainer>
       <div className="pb-[30px]">
         <div className="max-w-xl mx-auto flex flex-col gap-4 md:gap-6 lg:max-w-none lg:mx-0">
-          <ul className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+          <ul className="grid grid-cols-2 gap-2.5 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {products.map((i) => (
               <CardItem
                 key={i.slug}
@@ -23,11 +23,13 @@ const ProductsPage = async () => {
                 cooling_capacity={i?.productsFields?.cooling_capacity}
                 voltage={i.productsFields.voltage}
                 img={i.productsFields.img?.node?.sourceUrl}
+                images={i.productsFields.previewImages ?? i.productsFields.images}
                 volumeOfRefrigerator={i.productsFields?.volumeOfRefrigerator}
                 operatingRange={i.productsFields?.operatingRange}
                 title={i.title}
                 application={i.productsFields.application.nodes[0].name}
                 consumption={i.productsFields.consumption}
+                price={i.productsFields.price}
               />
             ))}
           </ul>

@@ -1,17 +1,17 @@
-import Image from "next/image";
-
-import { Button } from "@/components/ui/button";
-// import ActionButton from "./action-button";
-import TitleCardItem from "./title-card-item";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import ProductCarousel from "@/components/product-carousel";
 
-interface CardItemProps extends React.HTMLAttributes<HTMLDivElement> {
+interface CardItemProps extends React.HTMLAttributes<HTMLLIElement> {
   title: string;
   slug: string;
   volumeOfRefrigerator?: string;
   operatingRange?: string;
   img?: string;
+  images?: string[];
   application?: string;
+  categoryLabel?: string;
+  volums?: string[];
   cooling_capacity?: string;
   voltage?: string;
   consumption?: string;
@@ -21,118 +21,71 @@ interface CardItemProps extends React.HTMLAttributes<HTMLDivElement> {
 const CardItem: React.FC<CardItemProps> = ({
   title,
   slug,
-  volumeOfRefrigerator,
   consumption,
   operatingRange,
   img,
+  images,
   application,
+  categoryLabel,
+  volums,
   cooling_capacity,
   voltage,
   price,
 }) => {
+  const specifications = [
+    { label: "Холодопроизводительность", value: cooling_capacity },
+    { label: "Температура", value: operatingRange },
+    { label: "Энергопотребление", value: consumption },
+    { label: "Напряжение", value: voltage },
+  ].filter((item) => item.value);
+
   return (
-    <div className="w-full rounded-[40px] overflow-hidden bg-[#F7F6F9] shadow-md">
-      <div className="relative w-full aspect-square bg-[#7493C9]">
-        <svg
-          className="absolute z-0 w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-          width="577"
-          height="577"
-          viewBox="0 0 577 577"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g filter="url(#filter0_f_675_97687)">
-            <circle cx="288.5" cy="288.5" r="130.5" fill="white" />
-          </g>
-          <defs>
-            <filter
-              id="filter0_f_675_97687"
-              x="0.199997"
-              y="0.199997"
-              width="576.6"
-              height="576.6"
-              filterUnits="userSpaceOnUse"
-              colorInterpolationFilters="sRGB"
-            >
-              <feFlood floodOpacity="0" result="BackgroundImageFix" />
-              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-              <feGaussianBlur stdDeviation="78.9" result="effect1_foregroundBlur_675_97687" />
-            </filter>
-          </defs>
-        </svg>
-        <div className="absolute inset-4 z-20">
-          {img && <Image fill src={img} alt="mini-product" />}
-        </div>
+    <li className="group flex min-w-0 flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-black/[0.07] bg-white transition-colors duration-200 hover:border-[--accent]">
+      <div className="relative m-1 sm:m-2 shrink-0 aspect-square overflow-hidden rounded-xl sm:rounded-[18px] bg-[#F7F7F5]">
+        <ProductCarousel images={images?.length ? images : img ? [img] : []} title={title} />
       </div>
-      <div className="relative z-10 px-5 py-4">
-        <div className="">
-          {application ? (
-            <p className="text-xs uppercase text-[--accent] font-semibold  line-clamp-2 text-balance">
-              {application} с камерой {volumeOfRefrigerator || ""}
-            </p>
-          ) : (
-            ""
+      <div className="flex min-w-0 flex-1 flex-col px-2.5 pb-3 pt-2 sm:px-5 sm:pb-5 sm:pt-3">
+        <p className="text-[9px] sm:text-[11px] font-medium uppercase leading-3 sm:leading-4 tracking-[0.04em] sm:tracking-[0.12em] text-gray-500">
+          {categoryLabel ?? (application === "X-series" ? "X-Series · универсальные" : "Холодильные сплит-системы")}
+        </p>
+        <h2 className="mt-2 break-words text-sm sm:text-xl font-semibold leading-tight tracking-tight">
+          <Link className="rounded-sm transition-colors hover:text-[--accent] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[--accent]" href={`/catalog/${slug}`}>
+            {title}
+          </Link>
+        </h2>
+        <dl className="mb-4 mt-3 space-y-2 text-[11px] leading-4 sm:mb-6 sm:mt-5 sm:space-y-2.5 sm:text-[13px] sm:leading-5">
+          {specifications.map(({ label, value }) => (
+            <div key={label} className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3">
+              <dt className="min-w-0 break-words text-gray-500">{label}</dt>
+              <dd className="min-w-0 break-words sm:shrink-0 sm:text-right font-medium text-[--primary]">{value}</dd>
+            </div>
+          ))}
+          {volums?.some(Boolean) && (
+            <div className="border-t border-black/[0.05] pt-2.5">
+              <dt className="text-gray-500">Объём камеры</dt>
+              <dd className="mt-1 flex flex-wrap gap-x-3 gap-y-1 font-medium text-[--primary]">
+                {volums.filter(Boolean).map((volume, index) => <span key={`${volume}-${index}`}>{volume}</span>)}
+              </dd>
+            </div>
           )}
-          <TitleCardItem title={title} slug={slug} />
-          <ul className="text-sm mt-2 max-w-[240px]">
-            {cooling_capacity ? (
-              <li className="w-full flex justify-between">
-                <p className="line-clamp-1">Холодопроизводительность</p>
-                <p className="font-semibold text-right">{cooling_capacity}</p>
-              </li>
-            ) : (
-              ""
-            )}
-            {volumeOfRefrigerator ? (
-              <li className="w-full flex justify-between">
-                <p className="">Объём камеры</p>
-                <p className="font-semibold  text-right">{volumeOfRefrigerator}</p>
-              </li>
-            ) : (
-              ""
-            )}
-            {operatingRange ? (
-              <li className="w-full flex justify-between">
-                <p className="">Температурный режим</p>
-                <p className="font-semibold  text-right">{operatingRange}</p>
-              </li>
-            ) : (
-              ""
-            )}
-
-            {consumption ? (
-              <li className="w-full flex justify-between">
-                <p className="">Энергопотребление</p>
-                <p className="font-semibold  text-right">{consumption}</p>
-              </li>
-            ) : (
-              ""
-            )}
-
-            {voltage ? (
-              <li className="w-full flex justify-between">
-                <p className="">Напряжение</p>
-                <p className="font-semibold  text-right">{voltage}</p>
-              </li>
-            ) : (
-              ""
-            )}
-          </ul>
-          <div className="mt-4 flex justify-between gap-4 items-end">
-            <Button asChild size="sm">
-              <Link href={`/catalog/${slug}`}>Подробнее</Link>
-            </Button>
-            <span className=" whitespace-nowrap">
-              {price ? (
-                new Intl.NumberFormat("ru").format(price) + " р."
-              ) : (
-                <span className="text-sm font-semibold">По запросу</span>
-              )}
-            </span>
+        </dl>
+        <div className="mt-auto grid grid-cols-[minmax(0,1fr)_auto] items-end gap-1 sm:gap-3 border-t border-black/[0.07] pt-3 sm:pt-4">
+          <div className="min-w-0">
+            <p className="text-[11px] leading-4 text-gray-500">Стоимость</p>
+            <p className="mt-1 break-words text-sm sm:text-lg font-semibold leading-5 sm:leading-6 tracking-tight">
+              {price != null ? `${new Intl.NumberFormat("ru-RU").format(price)} ₽` : "По запросу"}
+            </p>
           </div>
+          <Link
+            href={`/catalog/${slug}`}
+            aria-label={`Подробнее о ${title}`}
+            className="flex h-8 w-8 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full bg-[#F1F3F8] text-[--accent] transition-colors hover:bg-[--accent] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[--accent]"
+          >
+            <ArrowUpRight size={21} aria-hidden="true" />
+          </Link>
         </div>
       </div>
-    </div>
+    </li>
   );
 };
 

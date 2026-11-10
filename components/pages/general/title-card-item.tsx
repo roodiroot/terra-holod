@@ -22,7 +22,7 @@ const TitleCardItem: React.FC<TitleCardItemProps> = ({ slug, title }) => {
   };
   return (
     <h4 className="font-bold flex gap-4 items-center">
-      <Link href={`/catalog/${slug}`}>Terra {title}</Link>
+      <Link href={`/catalog/${slug}`}>{title}</Link>
       <button onClick={handleCopy}>
         {copied ? (
           <CopyCheck className="size-6 text-gray-400" />

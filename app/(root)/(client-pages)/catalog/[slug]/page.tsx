@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { getProductBySlug } from "@/lib/wp-api";
 import HeroContainer from "@/components/pages/hero-container";
 import { Icons } from "@/components/icons/icons";
-import Image from "next/image";
+import ProductCarousel from "@/components/product-carousel";
 import { DownloadIcon } from "lucide-react";
 import OpenModalBatton from "@/components/active-components/open-modal-batton";
 import { Button } from "@/components/ui/button";
@@ -37,12 +37,12 @@ const ProductPage = async ({ params }: Props) => {
         <div className="flex flex-col-reverse">
           <div className="relative w-full pb-[100%] rounded-[40px] overflow-hidden bg-gray-100">
             <div className="absolute z-0 inset-0">
-              <Image
-                src={product.productsFields.img?.node?.sourceUrl}
-                alt={`${product.title}_complect`}
-                width={1000}
-                height={1000}
-                className="w-full h-full object-contain"
+              <ProductCarousel
+                images={product.productsFields.images?.length
+                  ? product.productsFields.images
+                  : [product.productsFields.img.node.sourceUrl]}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                title={product.title}
               />
             </div>
           </div>

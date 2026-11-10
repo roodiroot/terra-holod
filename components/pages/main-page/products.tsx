@@ -18,7 +18,7 @@ const ProductsForMainPage = async () => {
       <div className="max-w-xl mx-auto pt-[30px]  pb-[30px] lg:max-w-none lg:pt-[85px] lg:mx-0">
         <ClassicTitleModule title="Оборудование под любые задачи" />
         <div className="mt-8">
-          <ul className="grid mt-4 grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-6">
+          <ul className="grid mt-4 grid-cols-2 gap-2.5 sm:gap-x-4 sm:gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-6">
             {flowers.map((i) => (
               <CardItem
                 key={i.slug}
@@ -28,6 +28,7 @@ const ProductsForMainPage = async () => {
                 volumeOfRefrigerator={i?.productsFields?.volumeOfRefrigerator}
                 voltage={i.productsFields.voltage}
                 img={i.productsFields.img?.node?.sourceUrl}
+                images={i.productsFields.previewImages ?? i.productsFields.images}
                 operatingRange={i.productsFields?.operatingRange}
                 consumption={i.productsFields.consumption}
                 price={i.productsFields.price}

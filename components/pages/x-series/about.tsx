@@ -5,7 +5,7 @@ import ProductXSeries from "./products-x-series";
 const AboutSection = () => {
   return (
     <SectionContainer>
-      <div className="pt-[60px] pb-[60px]">
+      <div className="pt-[60px] pb-32 md:pb-40">
         <div className="flex flex-col">
           <div className="flex-1">
             <h2 className="text-4xl font-bold md:text-5xl text-balance">
