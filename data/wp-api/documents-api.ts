@@ -12,7 +12,7 @@ export type DocItem = {
   };
 };
 
-export async function getAllDocumentByTitle(title: string): Promise<DocItem> {
+export async function getAllDocumentByTitle(title: string): Promise<DocItem | undefined> {
   const response = await fetchAPI(`
       query getAllFAQBlock {
         docs (where: {title: "${title}"}) {
