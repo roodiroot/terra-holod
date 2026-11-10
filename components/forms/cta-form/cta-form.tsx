@@ -14,6 +14,7 @@ import { sendMessagePopup } from "@/actions/sender";
 import { toast } from "sonner";
 import { Switch } from "@/components/ui/switch";
 import { useState } from "react";
+import { sendFeedback } from "@/lib/feedback";
 
 interface CtaFormProps extends React.HTMLAttributes<HTMLFormElement> {}
 
@@ -32,34 +33,51 @@ const CtaForm: React.FC<CtaFormProps> = ({ className, ...props }) => {
     setIsSubmitting(true);
     const timeout = setTimeout(() => setIsSubmitting(false), 15000);
 
-    await sendMessagePopup({ ...values, name: "CTA" })
-      .then((d) => {
-        if (d.succsess) {
-          toast(d.succsess);
-          return;
-        }
-        toast(d.error);
-      })
-      .finally(() => {
-        form.reset();
-        clearTimeout(timeout);
-        setIsSubmitting(false);
+    // await sendMessagePopup({ ...values, name: "CTA" })
+    //   .then((d) => {
+    //     if (d.succsess) {
+    //       toast(d.succsess);
+    //       return;
+    //     }
+    //     toast(d.error);
+    //   })
+    //   .finally(() => {
+    //     form.reset();
+    //     clearTimeout(timeout);
+    //     setIsSubmitting(false);
+    //   });
+    try {
+      const text = `<b>TERRAHOLOD.RU</b> Заявка ${values?.phone}`;
+      const res = await sendFeedback({
+        to: "borisov130490@gmail.com",
+        subject: "Обратная связь c TERRAHOLOD.ru",
+        text,
       });
+
+      if (res.ok) {
+        toast.success("Отлично! Ожидайте звонка.");
+        form.reset();
+      } else {
+        toast.error("Ошибка попробуйте ещё раз!");
+      }
+    } catch (error) {
+      toast.error("Ошибка отправки сообщения!");
+    } finally {
+      form.reset();
+      clearTimeout(timeout);
+      setIsSubmitting(false);
+    }
   }
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        {...props}
-        className={cn("relative", className)}
-      >
+      <form onSubmit={form.handleSubmit(onSubmit)} {...props} className={cn("relative", className)}>
         <div className="flex flex-col gap-4 md:flex-row">
           <div className="h-[50px] pr-6 rounded-full border-2 border-gray-800 flex gap-4">
             <Icons.consultant
               className={cn(
                 "w-6 stroke-[--accent] ml-4",
-                form.formState.errors?.phone && " stroke-red-500"
+                form.formState.errors?.phone && " stroke-red-500",
               )}
             />
             <Controller
@@ -71,7 +89,7 @@ const CtaForm: React.FC<CtaFormProps> = ({ className, ...props }) => {
                     setValue={onChange}
                     value={value}
                     className={cn(
-                      "relative z-10 border-none mt-0.5 outline-none h-full bg-inherit flex-1 font-medium text-[--accent] placeholder:text-gray-200"
+                      "relative z-10 border-none mt-0.5 outline-none h-full bg-inherit flex-1 font-medium text-[--accent] placeholder:text-gray-200",
                     )}
                   />
                 </FormControl>
@@ -88,23 +106,16 @@ const CtaForm: React.FC<CtaFormProps> = ({ className, ...props }) => {
             render={({ field }) => (
               <FormItem className="flex items-center">
                 <FormControl>
-                  <Switch
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
+                  <Switch checked={field.value} onCheckedChange={field.onChange} />
                 </FormControl>
                 <div
                   className={cn(
                     "ml-4 text-sm",
-                    form.formState.errors.policy && "text-red-600 font-bold"
+                    form.formState.errors.policy && "text-red-600 font-bold",
                   )}
                 >
                   Я ознакомлен(а) с{" "}
-                  <a
-                    className="text-[--accent] font-bold"
-                    target="_blank"
-                    href="/docs/pd-consent"
-                  >
+                  <a className="text-[--accent] font-bold" target="_blank" href="/docs/pd-consent">
                     политикой персональных данных
                   </a>
                   .

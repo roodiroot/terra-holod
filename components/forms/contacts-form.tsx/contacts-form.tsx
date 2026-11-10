@@ -22,6 +22,7 @@ import { sendMessageFedback } from "@/actions/sender";
 import { toast } from "sonner";
 import { Switch } from "@/components/ui/switch";
 import { useState } from "react";
+import { sendFeedback } from "@/lib/feedback";
 
 interface ContactsFormProps extends React.HTMLAttributes<HTMLFormElement> {}
 
@@ -41,19 +42,40 @@ const ContactsForm: React.FC<ContactsFormProps> = ({ className, ...props }) => {
   async function onSubmit(values: z.infer<typeof formContactsSchema>) {
     setIsSubmitting(true);
     const timeout = setTimeout(() => setIsSubmitting(false), 15000);
-    await sendMessageFedback(values)
-      .then((d) => {
-        if (d.succsess) {
-          toast(d.succsess);
-          return;
-        }
-        toast(d.error);
-      })
-      .finally(() => {
-        form.reset();
-        clearTimeout(timeout);
-        setIsSubmitting(false);
+    // await sendMessageFedback(values)
+    //   .then((d) => {
+    //     if (d.succsess) {
+    //       toast(d.succsess);
+    //       return;
+    //     }
+    //     toast(d.error);
+    //   })
+    //   .finally(() => {
+    //     form.reset();
+    //     clearTimeout(timeout);
+    //     setIsSubmitting(false);
+    //   });
+    try {
+      const text = `TERRAHOLOD.RU — Заявка\nИмя: ${values.name}\nEmail: ${values.email}\n${values.message}`;
+      const res = await sendFeedback({
+        to: "borisov130490@gmail.com",
+        subject: "Обратная связь c TERRAHOLOD.ru",
+        text,
       });
+
+      if (res.ok) {
+        toast.success("Отлично! Ожидайте звонка.");
+        form.reset();
+      } else {
+        toast.error("Ошибка попробуйте ещё раз!");
+      }
+    } catch (error) {
+      toast.error("Ошибка отправки сообщения!");
+    } finally {
+      form.reset();
+      clearTimeout(timeout);
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -119,23 +141,16 @@ const ContactsForm: React.FC<ContactsFormProps> = ({ className, ...props }) => {
           render={({ field }) => (
             <FormItem className="flex items-center">
               <FormControl>
-                <Switch
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                />
+                <Switch checked={field.value} onCheckedChange={field.onChange} />
               </FormControl>
               <div
                 className={cn(
                   "ml-4 text-sm",
-                  form.formState.errors.policy && "text-red-600 font-bold"
+                  form.formState.errors.policy && "text-red-600 font-bold",
                 )}
               >
                 Я ознакомлен(а) с{" "}
-                <a
-                  className="text-[--accent] font-bold"
-                  target="_blank"
-                  href="/docs/pd-consent"
-                >
+                <a className="text-[--accent] font-bold" target="_blank" href="/docs/pd-consent">
                   политикой персональных данных
                 </a>
                 .

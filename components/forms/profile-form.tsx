@@ -23,6 +23,7 @@ import { sendMessagePopup } from "@/actions/sender";
 import useModal from "@/hooks/use-modal";
 import { Switch } from "../ui/switch";
 import { useState } from "react";
+import { sendFeedback } from "@/lib/feedback";
 
 function ProfileForm({ className }: React.ComponentProps<"form">) {
   const { onClose } = useModal();
@@ -39,19 +40,40 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
   async function onSubmit(values: z.infer<typeof formProfileSchema>) {
     setIsSubmitting(true);
     const timeout = setTimeout(() => setIsSubmitting(false), 15000);
-    await sendMessagePopup(values)
-      .then((d) => {
-        if (d.succsess) {
-          toast(d.succsess);
-          return onClose();
-        }
-        toast(d.error);
-      })
-      .finally(() => {
-        form.reset();
-        clearTimeout(timeout);
-        setIsSubmitting(false);
+    // await sendMessagePopup(values)
+    //   .then((d) => {
+    //     if (d.succsess) {
+    //       toast(d.succsess);
+    //       return onClose();
+    //     }
+    //     toast(d.error);
+    //   })
+    //   .finally(() => {
+    //     form.reset();
+    //     clearTimeout(timeout);
+    //     setIsSubmitting(false);
+    //   });
+    try {
+      const text = `TERRAHOLOD.RU — Заявка\nИмя: ${values.name}\nТелефон: ${values.phone}`;
+      const res = await sendFeedback({
+        to: "borisov130490@gmail.com",
+        subject: "Обратная связь c TERRAHOLOD.ru",
+        text,
       });
+
+      if (res.ok) {
+        toast.success("Отлично! Ожидайте звонка.");
+        form.reset();
+      } else {
+        toast.error("Ошибка попробуйте ещё раз!");
+      }
+    } catch (error) {
+      toast.error("Ошибка отправки сообщения!");
+    } finally {
+      form.reset();
+      clearTimeout(timeout);
+      setIsSubmitting(false);
+    }
   }
   return (
     <Form {...form}>
@@ -88,7 +110,7 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
                   setValue={onChange}
                   value={value}
                   className={cn(
-                    "flex h-[50px] w-full rounded-full border border-gray-200 bg-white px-6 py-2 ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-gray-950 placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:ring-offset-gray-950 dark:file:text-gray-50 dark:placeholder:text-gray-400 dark:focus-visible:ring-gray-300"
+                    "flex h-[50px] w-full rounded-full border border-gray-200 bg-white px-6 py-2 ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-gray-950 placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:ring-offset-gray-950 dark:file:text-gray-50 dark:placeholder:text-gray-400 dark:focus-visible:ring-gray-300",
                   )}
                 />
               </FormControl>
@@ -103,23 +125,16 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
           render={({ field }) => (
             <FormItem className="flex items-center">
               <FormControl>
-                <Switch
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                />
+                <Switch checked={field.value} onCheckedChange={field.onChange} />
               </FormControl>
               <div
                 className={cn(
                   "ml-4 text-sm",
-                  form.formState.errors.policy && "text-red-600 font-bold"
+                  form.formState.errors.policy && "text-red-600 font-bold",
                 )}
               >
                 Я ознакомлен(а) с{" "}
-                <a
-                  className="text-[--accent] font-bold"
-                  target="_blank"
-                  href="/docs/pd-consent"
-                >
+                <a className="text-[--accent] font-bold" target="_blank" href="/docs/pd-consent">
                   политикой персональных данных
                 </a>
                 .
